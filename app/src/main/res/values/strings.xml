@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Android Rituals Beta</string>
+    <string name="error_unknown">Unknown error</string>
+    <string name ="unbounded_width_not_supported">Unbounded width not supported</string>
+    <string name="save">Save</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="logo">Logo</string>
+    <string name="search">Search…</string>
+    <string name="log_prefix_">RITUALS==</string>
+    <string name="looks_like_empty">Hmm…Looks like it\'s empty here!!</string>
+    <string name="gratitude_i_am_thankful_for">I am thankful for…</string>
+    <string name="gratitude">Gratitude</string>
+    <string name="rituals">Rituals</string>
 </resources>
