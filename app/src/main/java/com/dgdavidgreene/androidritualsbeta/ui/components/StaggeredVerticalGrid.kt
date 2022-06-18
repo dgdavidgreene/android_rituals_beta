@@ -19,7 +19,7 @@ fun StaggeredVerticalGrid(
     Layout(
         content = content,
         modifier = modifier
-    ) { measurables, constraints ->
+    ) { measurePolicy, constraints ->
         check(constraints.hasBoundedWidth) {
             checkBoundedErrorMessage
         }
@@ -27,7 +27,7 @@ fun StaggeredVerticalGrid(
         val columnWidth = constraints.maxWidth / columns
         val itemConstraints = constraints.copy(maxWidth = columnWidth)
         val colHeights = IntArray(columns) { 0 } // track each column's height
-        val placeables = measurables.map { measurable ->
+        val placeableItems = measurePolicy.map { measurable ->
             val column = shortestColumn(colHeights)
             val placeable = measurable.measure(itemConstraints)
             colHeights[column] += placeable.height
@@ -41,7 +41,7 @@ fun StaggeredVerticalGrid(
             height = height
         ) {
             val colY = IntArray(columns) { 0 }
-            placeables.forEach { placeable ->
+            placeableItems.forEach { placeable ->
                 val column = shortestColumn(colY)
                 placeable.place(
                     x = columnWidth * column,
