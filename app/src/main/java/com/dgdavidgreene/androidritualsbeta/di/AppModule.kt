@@ -2,6 +2,7 @@ package com.dgdavidgreene.androidritualsbeta.di
 
 import android.app.Application
 import com.dgdavidgreene.androidritualsbeta.AppDatabase
+import com.dgdavidgreene.androidritualsbeta.data.Repository
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import dagger.Module
@@ -25,12 +26,12 @@ object AppModule {
     }
 
 
-    /*@Provides
+    @Provides
     @Singleton
-    fun providePersonRepository(driver: SqlDriver): Repository {
+    fun provideRepository(driver: SqlDriver): Repository {
         return Repository(
             AppDatabase.invoke(driver)
         )
-    }*/
+    }
 
 }
