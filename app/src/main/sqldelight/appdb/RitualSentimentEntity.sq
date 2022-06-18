@@ -1,0 +1,27 @@
+CREATE TABLE RitualSentimentEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    category INTEGER NOT NULL,
+    sentiment TEXT NOT NULL,
+    createdAt TEXT NOT NULL
+);
+
+
+getAllRitualSentiments:
+SELECT * FROM RitualSentimentEntity;
+
+getRitualSentimentById:
+SELECT *
+FROM RitualSentimentEntity
+WHERE id = :id;
+
+insertRitualSentiment:
+INSERT OR REPLACE INTO RitualSentimentEntity
+VALUES(?,?,?,?);
+
+deleteRitualSentimentById:
+DELETE FROM RitualSentimentEntity
+WHERE id=:id;
+
+searchRitualSentiments:
+SELECT * FROM RitualSentimentEntity WHERE sentiment LIKE '%' || :sentiment || '%';
+
