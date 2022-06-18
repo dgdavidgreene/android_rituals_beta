@@ -68,4 +68,13 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
     implementation "androidx.activity:activity-ktx:1.4.0"
+
+    //sqldelight
+    implementation "com.squareup.sqldelight:android-driver:1.5.3"
+}
+
+sqldelight{
+    AppDatabase{
+        packageName = "com.dgdavidgreene.androidritualsbeta"
+    }
 }
