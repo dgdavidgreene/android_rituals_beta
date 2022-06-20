@@ -14,7 +14,7 @@ class Repository @Inject constructor(private val db: AppDatabase) {
 
     private val queries = db.ritualSentimentEntityQueries
 
-    fun getAllNotes() = queries.getAllRitualSentiments().asFlow().mapToList()
+    fun getAllRitualSentiments() = queries.getAllRitualSentiments().asFlow().mapToList()
 
     suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
         return withContext(Dispatchers.IO) {

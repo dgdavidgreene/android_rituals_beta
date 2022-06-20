@@ -15,11 +15,11 @@ import androidx.compose.ui.unit.sp
 import appdb.RitualSentimentEntity
 
 @Composable
-    fun ListCard(
+    fun SentimentCard(
     modifier: Modifier = Modifier,
     ritualSentimentEntity: RitualSentimentEntity,
     cardColor: Color,
-    onRitualSentimentClick : (RitualSentimentEntity) -> Unit = {}
+    //onRitualSentimentClick : (RitualSentimentEntity) -> Unit = {}
     ) {
 
         Box(
@@ -30,7 +30,7 @@ import appdb.RitualSentimentEntity
                     cardColor,
                     shape = RoundedCornerShape(8.dp)
                 )
-                .clickable(onClick = { onRitualSentimentClick(ritualSentimentEntity) }),
+                //.clickable(onClick = { onRitualSentimentClick(ritualSentimentEntity) }),
         ) {
 
             Column(
@@ -47,8 +47,5 @@ import appdb.RitualSentimentEntity
                     overflow = TextOverflow.Ellipsis
                 )
             }
-
         }
-
-
     }
