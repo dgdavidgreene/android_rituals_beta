@@ -14,7 +14,14 @@ data class Dimension(
     val dp16: Dp = 16.dp,
     val dp32: Dp = 32.dp,
     val dp64: Dp = 64.dp,
+    val dp96: Dp = 96.dp,
+    val dp128: Dp = 128.dp,
     val dp220: Dp = 220.dp,
+    val dp240: Dp = 240.dp,
+    val dp300: Dp = 300.dp,
+    val dp320: Dp = 320.dp,
+    val dp360: Dp = 360.dp,
+    val dp480: Dp = 480.dp,
 
     val size1: TextUnit = 1.sp,
     val size4: TextUnit = 4.sp,
@@ -25,6 +32,7 @@ data class Dimension(
     val size18: TextUnit = 18.sp,
     val size20: TextUnit = 20.sp,
     val size24: TextUnit = 24.sp,
+    val size32: TextUnit = 32.sp,
 
     val float0: Float = 0f,
     val float0_4: Float = 0.4f,

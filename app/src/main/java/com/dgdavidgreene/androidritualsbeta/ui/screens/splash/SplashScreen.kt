@@ -20,11 +20,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.dgdavidgreene.androidritualsbeta.Greeting
+
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
+import com.dgdavidgreene.androidritualsbeta.ui.theme.AndroidRitualsBetaTheme
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 
 import kotlinx.coroutines.CoroutineDispatcher
@@ -63,9 +67,9 @@ fun SplashScreen(
                     }
                 ),
             )
-            /*delay(1000L)
+            delay(3000L)
             navController.popBackStack()
-            navController.navigate(Screen.NotesScreen.route)*/
+            navController.navigate(Screen.SentimentListScreen.route)
         }
     }
 
@@ -76,8 +80,23 @@ fun SplashScreen(
         Image(
             painter = painterResource(id = R.drawable.ic_praying_hands_solid_svgrepo_com),
             contentDescription = stringResource(id = R.string.logo),
-            modifier = Modifier.size(spacing.dp64).scale(scale.value)
+            modifier = Modifier.size(spacing.dp128).scale(scale.value)
         )
 
+    }
+}
+
+@Composable
+fun Greeting(name: String) {
+    val spacing = LocalSpacing.current
+
+    Text(text = "Hello $name!", fontSize = spacing.size24)
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    AndroidRitualsBetaTheme {
+        Greeting("Android")
     }
 }

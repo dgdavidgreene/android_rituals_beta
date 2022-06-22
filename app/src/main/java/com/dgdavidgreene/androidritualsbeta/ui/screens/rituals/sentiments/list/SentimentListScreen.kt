@@ -31,6 +31,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getColorIntervals
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 import appdb.RitualSentimentEntity
+import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 
 @Composable
 fun SentimentListScreen(
@@ -63,8 +64,8 @@ fun SentimentListScreen(
             ) {
 
                 Text(
-                    text = "Notes",
-                    color = white,
+                    text = "Sentiments",
+                    color = black,
                     style = MaterialTheme.typography.h4
                 )
 
@@ -164,7 +165,7 @@ fun EmptySentiments(
             )
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = "ADD SentimentS",
+                text = "ADD Sentiments",
                 textAlign = TextAlign.Center,
                 style = TextStyle(
                     color = white.copy(0.4F),
