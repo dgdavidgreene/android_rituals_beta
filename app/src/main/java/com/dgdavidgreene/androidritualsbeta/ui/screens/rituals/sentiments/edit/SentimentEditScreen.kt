@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidgamma.ui.screens.edit_Sentiment
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.edit
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -27,9 +27,9 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.buttonColor
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 
 @Composable
-fun EditSentimentScreen(
+fun SentimentEditScreen(
     navController: NavController,
-    viewModel : EditSentimentViewModel = hiltViewModel()
+    viewModel : SentimentEditViewModel = hiltViewModel()
 ) {
 
     val focusManager = LocalFocusManager.current

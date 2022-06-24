@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidgamma.ui.screens.add_Sentiment
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.add
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,7 +13,7 @@ import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class AddSentimentViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
+class SentimentAddViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
 
     var SentimentCategoryIdentifier by mutableStateOf(0L)

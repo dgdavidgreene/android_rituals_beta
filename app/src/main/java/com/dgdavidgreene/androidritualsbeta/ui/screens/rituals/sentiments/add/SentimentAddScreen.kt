@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidgamma.ui.screens.add_Sentiment
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.add
 
 
 import androidx.compose.foundation.background
@@ -28,7 +28,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 @Composable
 fun AddSentimentScreen(
     navController: NavController,
-    viewModel: AddSentimentViewModel = hiltViewModel()
+    viewModel: SentimentAddViewModel = hiltViewModel()
 ) {
 
     val focusManager = LocalFocusManager.current

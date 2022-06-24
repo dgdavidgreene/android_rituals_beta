@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidritualsbeta.ui.screens.view_Sentiment
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,7 +13,7 @@ import appdb.RitualSentimentEntity
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewSentimentViewModel @Inject constructor(
+class SentimentViewViewModel @Inject constructor(
     private val repository: Repository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {

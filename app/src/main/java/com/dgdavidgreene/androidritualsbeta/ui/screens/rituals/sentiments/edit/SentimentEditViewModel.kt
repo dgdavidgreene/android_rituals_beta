@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidgamma.ui.screens.edit_Sentiment
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.edit
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -15,7 +15,7 @@ import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class EditSentimentViewModel @Inject constructor(
+class SentimentEditViewModel @Inject constructor(
     private val repository: Repository,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {

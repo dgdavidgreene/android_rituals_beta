@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidgamma.ui.screens.rituals.sentiments.view
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -19,14 +19,14 @@ import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
-import com.dgdavidgreene.androidritualsbeta.ui.screens.view_Sentiment.ViewSentimentViewModel
+import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view.SentimentViewViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 
 @Composable
-fun ViewSentimentScreen(
+fun SentimentViewScreen(
     navController: NavController,
-    viewModel: ViewSentimentViewModel = hiltViewModel()
+    viewModel: SentimentViewViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     viewModel.getSentimentById()

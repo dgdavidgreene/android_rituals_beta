@@ -5,7 +5,7 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+//import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -80,7 +80,7 @@ fun SentimentListScreen(
             if (sentiments.isNullOrEmpty()) {
 
                 EmptySentiments {
-                    navController.navigate(Screen.SplashScreen.route)
+                    navController.navigate(Screen.SentimentAddScreen.route)
                 }
 
             } else {
@@ -104,7 +104,7 @@ fun SentimentListScreen(
                                 //onRitualSentimentClick = {}
                             ) /*{
 
-                                navController.navigate(Screen.SplashScreen.route + "/${sentiment.id}")
+                                navController.navigate(Screen.S.route + "/${sentiment.id}")
 
                             }*/
                         }
