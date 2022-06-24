@@ -43,8 +43,19 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-        setContentView(R.layout.activity_main)
-
+        //setContentView(R.layout.activity_main)
+    setContent {
+        AndroidRitualsBetaTheme {
+            // A surface container using the 'background' color from the theme
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colors.background
+            ) {
+                val navController = rememberNavController()
+                Navigation(navController)
+            }
+        }
+    }
         var isReady = false
 
         Handler(mainLooper).postDelayed({
