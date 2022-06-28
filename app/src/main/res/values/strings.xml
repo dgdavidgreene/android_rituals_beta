@@ -11,4 +11,6 @@
     <string name="gratitude_i_am_thankful_for">I am thankful for…</string>
     <string name="gratitude">Gratitude</string>
     <string name="rituals">Rituals</string>
+    <string name="add_sentiments">ADD Sentiments</string>
+    <string name="sentiments">Sentiments</string>
 </resources>

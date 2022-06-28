@@ -1,11 +1,7 @@
 package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.list
 
 import androidx.compose.foundation.*
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-//import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -17,12 +13,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.components.SentimentCard
 import com.dgdavidgreene.androidritualsbeta.ui.components.StaggeredVerticalGrid
@@ -30,7 +28,6 @@ import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getColorIntervals
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
-import appdb.RitualSentimentEntity
 import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 
 @Composable
@@ -54,17 +51,17 @@ fun SentimentListScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        start = 12.dp,
-                        end = 12.dp,
-                        top = 12.dp,
-                        bottom = 8.dp
+                        start = spacing.dp12,
+                        end = spacing.dp12,
+                        top = spacing.dp12,
+                        bottom = spacing.dp8
                     ),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
                 Text(
-                    text = "Sentiments",
+                    text = stringResource(id = R.string.sentiments),
                     color = black,
                     style = MaterialTheme.typography.h4
                 )
@@ -72,7 +69,7 @@ fun SentimentListScreen(
                 ImageButton(
                     icon = Icons.Outlined.Search,
                     onClick = {
-                        navController.navigate(Screen.SplashScreen.route)
+                        navController.navigate(Screen.SentimentListScreen.route)
                     }
                 )
             }
@@ -91,8 +88,8 @@ fun SentimentListScreen(
                 ) {
 
                     StaggeredVerticalGrid(
-                        maxColumnWidth = 220.dp,
-                        modifier = Modifier.padding(8.dp)
+                        maxColumnWidth = spacing.dp220,
+                        modifier = Modifier.padding(spacing.dp8)
                     ) {
 
                         sentiments.forEachIndexed { index, sentiment ->
@@ -117,11 +114,11 @@ fun SentimentListScreen(
         ImageButton(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
-                .padding(12.dp),
-            size = 64.dp,
+                .padding(spacing.dp12),
+            size = spacing.dp64,
             icon = Icons.Outlined.Add,
             onClick = {
-                navController.navigate(Screen.SplashScreen.route)
+                navController.navigate(Screen.SentimentAddScreen.route)
             }
         )
     }
@@ -131,6 +128,7 @@ fun SentimentListScreen(
 fun EmptySentiments(
     onClick : () -> Unit
 ) {
+    val spacing = LocalSpacing.current
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -148,29 +146,29 @@ fun EmptySentiments(
         ) {
             Image(
                 modifier = Modifier
-                    .size(75.dp)
-                    .alpha(0.5F),
-                painter = painterResource(id = com.dgdavidgreene.androidritualsbeta.R.drawable.ic_praying_hands_solid_svgrepo_com),
+                    .size(spacing.dp75)
+                    .alpha(spacing.float0_5),
+                painter = painterResource(id = R.drawable.ic_praying_hands_solid_svgrepo_com),
                 contentDescription = "Logo",
             )
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(spacing.dp12))
+
             Text(
-                text = "Hmm...Looks like it's empty here!!",
+                text = stringResource(id = R.string.looks_like_empty),
                 textAlign = TextAlign.Center,
                 style = TextStyle(
-                    color = white.copy(0.4F),
+                    color = white.copy(spacing.float0_4),
                     //fontFamily = Helvetica,
-                    fontSize = 16.sp
+                    fontSize = spacing.size16
                 )
             )
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = "ADD Sentiments",
+                text = stringResource(id = R.string.add_sentiments),
                 textAlign = TextAlign.Center,
                 style = TextStyle(
-                    color = white.copy(0.4F),
-                    //fontFamily = Helvetica,
-                    fontSize = 20.sp
+                    color = white.copy(spacing.float0_4),
+                    fontSize = spacing.size20
                 )
             )
         }
