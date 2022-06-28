@@ -73,7 +73,7 @@ fun SentimentViewScreen(
         sentiment?.let {
             Spacer(modifier = Modifier.height(spacing.dp16))
             Text(
-                text = "Hi",
+                text = "${textSentiment}",
                 style = MaterialTheme.typography.h5,
                 fontWeight = FontWeight.W500,
                 color = Color.Black,
@@ -81,18 +81,19 @@ fun SentimentViewScreen(
             )
             Spacer(modifier = Modifier.height(spacing.dp8))
             Text(
-                text = sentiment.createdAt,
+                text = "${sentiment.createdAt}",
                 style = MaterialTheme.typography.body2,
-                color = white.copy(spacing.float0_5)
+                color = Color.Black.copy(spacing.float0_5)
             )
             Spacer(modifier = Modifier.height(spacing.dp8))
+            val category = sentiment?.category.toString()
             Text(
                 modifier = Modifier.verticalScroll(rememberScrollState()),
-                text = sentiment.sentiment ?: "",
+                text = category ?: "",
                 style = MaterialTheme.typography.subtitle1,
                 fontWeight = FontWeight.W500,
                 fontSize = spacing.size18,
-                color = white,
+                color = Color.Black,
             )
         } ?: kotlin.run {
             Box(
