@@ -2,7 +2,6 @@ package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.add
 
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,7 +12,6 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -23,7 +21,6 @@ import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.ui.components.BasicTextField
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
-import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 import com.dgdavidgreene.androidritualsbeta.ui.theme.buttonColor
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 
@@ -66,7 +63,7 @@ fun SentimentAddScreen(
                     .clickable(
                         onClick = {
                             viewModel.onSaveSentiment()
-                            if (viewModel.SentimentContentField.isNotBlank()) {
+                            if (viewModel.sentimentContentField.isNotBlank()) {
                                 navController.navigateUp()
                             }
                         }
@@ -97,7 +94,7 @@ fun SentimentAddScreen(
         BasicTextField(
             modifier = Modifier
                 .fillMaxWidth(),
-            value = viewModel.SentimentContentField,
+            value = viewModel.sentimentContentField,
             onValueChange = viewModel::onContentChange,
             imeAction = ImeAction.None,
             placeHolderTitle = stringResource(id = R.string.gratitude_i_am_thankful_for),

@@ -25,11 +25,11 @@ fun Navigation(
             SentimentAddScreen(navController = navController)
         }
 
-        composable(route = Screen.SentimentViewScreen.route) {
+        composable(route = Screen.SentimentViewScreen.route  + "/{sentimentId}") {
             SentimentViewScreen(navController = navController)
         }
 
-        composable(route = Screen.SentimentEditScreen.route) {
+        composable(route = Screen.SentimentEditScreen.route  + "/{sentimentId}") {
             SentimentEditScreen(navController = navController)
         }
     }

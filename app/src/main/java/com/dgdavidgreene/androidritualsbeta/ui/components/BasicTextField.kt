@@ -15,6 +15,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 
 
 @Composable
@@ -28,6 +29,7 @@ fun BasicTextField(
     onNextClick: () -> Unit = {},
     onDoneClick: () -> Unit = {}
 ) {
+    val spacing = LocalSpacing.current
     TextField(
         modifier = modifier,
         value = value,
@@ -39,7 +41,7 @@ fun BasicTextField(
             )
         },
         textStyle = TextStyle(
-            color = Color.White,
+            color = Color.Black,
             fontWeight = FontWeight.Medium,
             fontSize = fontSize
         ),
@@ -50,7 +52,7 @@ fun BasicTextField(
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
             disabledIndicatorColor = Color.Transparent,
-            cursorColor = Color.White.copy(alpha = 0.5f)
+            cursorColor = Color.White.copy(alpha = spacing.float0_5)
         ),
         keyboardOptions = KeyboardOptions(
             imeAction = imeAction,

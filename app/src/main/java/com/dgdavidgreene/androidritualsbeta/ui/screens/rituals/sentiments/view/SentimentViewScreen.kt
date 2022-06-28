@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -62,20 +63,20 @@ fun SentimentViewScreen(
                 ImageButton(
                     icon = Icons.Default.Edit
                 ) {
-                    //navController.navigate(Screen.EditSentimentScreen.route + "/${Sentiment?.id}")
+                    navController.navigate(Screen.SentimentEditScreen.route + "/${sentiment?.id}")
                 }
             }
 
 
         }
-
+        val textSentiment = sentiment?.sentiment
         sentiment?.let {
             Spacer(modifier = Modifier.height(spacing.dp16))
             Text(
-                text = sentiment.category.toString(),
+                text = "Hi",
                 style = MaterialTheme.typography.h5,
                 fontWeight = FontWeight.W500,
-                color = white,
+                color = Color.Black,
                 fontSize = spacing.size24,
             )
             Spacer(modifier = Modifier.height(spacing.dp8))

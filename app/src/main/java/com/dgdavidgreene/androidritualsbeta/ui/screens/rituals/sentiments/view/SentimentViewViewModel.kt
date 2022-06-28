@@ -25,14 +25,16 @@ class SentimentViewViewModel @Inject constructor(
         private set
 
     init {
-        savedStateHandle.get<String>("SentimentId")?.let { SentimentId ->
-            this.sentimentId = SentimentId.toLong()
+        savedStateHandle.get<String>("sentimentId")?.let { sentimentId ->
+            val id = sentimentId
+            this.sentimentId = sentimentId.toLong()
             getSentimentById()
         }
     }
 
     fun getSentimentById() {
         viewModelScope.launch {
+            val id = sentimentId
             sentimentId?.let {
                 sentiment = repository.getRitualSentimentEntityById(it)
             }

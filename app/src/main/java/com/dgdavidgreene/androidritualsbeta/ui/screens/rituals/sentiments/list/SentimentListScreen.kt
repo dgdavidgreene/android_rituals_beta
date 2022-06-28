@@ -93,17 +93,17 @@ fun SentimentListScreen(
                     ) {
 
                         sentiments.forEachIndexed { index, sentiment ->
-                            val color = getColorIntervals(index, sentiments.size)
+                            val color = getColorIntervals(index)
                             SentimentCard(
                                 modifier = Modifier.padding(),
                                 ritualSentimentEntity = sentiment,
                                 cardColor = color,
                                 //onRitualSentimentClick = {}
-                            ) /*{
+                            ) {
 
-                                navController.navigate(Screen.S.route + "/${sentiment.id}")
+                                navController.navigate(Screen.SentimentViewScreen.route + "/${sentiment.id}")
 
-                            }*/
+                            }
                         }
                     }
                 }

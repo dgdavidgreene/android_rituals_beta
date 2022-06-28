@@ -17,6 +17,7 @@ class Repository @Inject constructor(private val db: AppDatabase) {
     fun getAllRitualSentiments() = queries.getAllRitualSentiments().asFlow().mapToList()
 
     suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
+        val inputId = id
         return withContext(Dispatchers.IO) {
             queries.getRitualSentimentById(id).executeAsOneOrNull()
         }
@@ -24,7 +25,8 @@ class Repository @Inject constructor(private val db: AppDatabase) {
 
     suspend fun insertRitualSentimentEntity(category: Long, sentiment: String, date: String, id: Long? = null) {
         withContext(Dispatchers.IO) {
-            queries.insertRitualSentiment(id, category, sentiment, date)
+            val trimmedSentiment = sentiment.trim()
+            queries.insertRitualSentiment(id, category, trimmedSentiment, date)
         }
     }
 
@@ -39,4 +41,9 @@ class Repository @Inject constructor(private val db: AppDatabase) {
 
     }
 
+    suspend fun getRitualSentimentEntityByCategory(category: Long): Flow<List<RitualSentimentEntity>> {
+        return withContext(Dispatchers.IO) {
+            queries.getRitualSentimentById(category).asFlow().mapToList()
+        }
+    }
 }

@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.buttonColor
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 
@@ -24,7 +25,7 @@ fun ImageButton(
     iconSize:Dp = 28.dp,
     onClick: () -> Unit = {}
 ) {
-
+    val spacing = LocalSpacing.current
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center
@@ -33,7 +34,7 @@ fun ImageButton(
             modifier = Modifier
                 .background(
                     color,
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(spacing.dp8)
                 )
                 .size(size)
                 .clickable(onClick = onClick)
@@ -43,7 +44,7 @@ fun ImageButton(
             imageVector = icon,
             tint= iconColor,
             contentDescription = null,
-            modifier = Modifier.padding(4.dp)
+            modifier = Modifier.padding(spacing.dp4)
                 .size(iconSize)
         )
     }

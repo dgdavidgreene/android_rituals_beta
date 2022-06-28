@@ -16,28 +16,29 @@ import javax.inject.Inject
 class SentimentAddViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
 
-    var SentimentCategoryIdentifier by mutableStateOf(0L)
+
+    var sentimentCategoryIdentifier by mutableStateOf(0L)
         private set
 
-    var SentimentContentField by mutableStateOf("")
+    var sentimentContentField by mutableStateOf("")
         private set
 
     fun onSaveSentiment() {
-        if (SentimentContentField.isBlank()) {
+        if (sentimentContentField.isBlank()) {
             return
         }
 
         viewModelScope.launch {
-            repository.insertRitualSentimentEntity(SentimentCategoryIdentifier, SentimentContentField, getCreationTime())
+            repository.insertRitualSentimentEntity(sentimentCategoryIdentifier, sentimentContentField, getCreationTime())
         }
     }
 
     fun onCategoryChange(value: Long){
-        this.SentimentCategoryIdentifier = value
+        this.sentimentCategoryIdentifier = value
     }
 
     fun onContentChange(value:String){
-        this.SentimentContentField = value
+        this.sentimentContentField = value
     }
 
     private fun getCreationTime() : String{

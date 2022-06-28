@@ -13,24 +13,26 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import appdb.RitualSentimentEntity
+import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 
 @Composable
     fun SentimentCard(
     modifier: Modifier = Modifier,
     ritualSentimentEntity: RitualSentimentEntity,
     cardColor: Color,
-    //onRitualSentimentClick : (RitualSentimentEntity) -> Unit = {}
+    onRitualSentimentClick : (RitualSentimentEntity) -> Unit = {}
     ) {
-
+    val spacing = LocalSpacing.current
         Box(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(4.dp)
+                .padding(spacing.dp4)
                 .background(
                     cardColor,
-                    shape = RoundedCornerShape(8.dp)
+                    shape = RoundedCornerShape(spacing.dp8)
                 )
-                //.clickable(onClick = { onRitualSentimentClick(ritualSentimentEntity) }),
+                .clickable(onClick =
+                { onRitualSentimentClick(ritualSentimentEntity) }),
         ) {
 
             Column(
@@ -40,9 +42,9 @@ import appdb.RitualSentimentEntity
             ) {
 
                 Text(
-                    text = ritualSentimentEntity.sentiment,
+                    text = "${ritualSentimentEntity.sentiment} ${ritualSentimentEntity.id} ${ritualSentimentEntity.category}",
                     style = MaterialTheme.typography.subtitle1,
-                    fontSize = 16.sp,
+                    fontSize = spacing.size16,
                     maxLines = 6,
                     overflow = TextOverflow.Ellipsis
                 )

@@ -6,9 +6,9 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.*
 object Util {
 
 
-    fun getColorIntervals(index:Int, size:Int): Color {
-        return when (index % size) {
-            0 -> card1
+    fun getColorIntervals(index:Int): Color {
+        return when (index % 8) {
+            0 -> card9
             1 -> card2
             2 -> card3
             3 -> card4
@@ -16,7 +16,6 @@ object Util {
             5 -> card6
             6 -> card7
             7 -> card8
-            8 -> card9
             else -> card1
         }
     }
