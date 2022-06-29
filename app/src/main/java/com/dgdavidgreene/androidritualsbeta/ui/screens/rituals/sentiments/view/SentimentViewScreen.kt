@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
+import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view.SentimentViewViewModel
@@ -86,7 +87,7 @@ fun SentimentViewScreen(
                 color = Color.Black.copy(spacing.float0_5)
             )
             Spacer(modifier = Modifier.height(spacing.dp8))
-            val category = sentiment?.category.toString()
+            val category = stringResource(id = Ritual.getPreamble(sentiment?.category.toInt()))
             Text(
                 modifier = Modifier.verticalScroll(rememberScrollState()),
                 text = category ?: "",

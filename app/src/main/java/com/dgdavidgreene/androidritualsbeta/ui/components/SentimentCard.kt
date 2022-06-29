@@ -9,10 +9,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import appdb.RitualSentimentEntity
+import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 
 @Composable
@@ -26,7 +28,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
         Box(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(spacing.dp4)
+                .padding(spacing.dp1)
                 .background(
                     cardColor,
                     shape = RoundedCornerShape(spacing.dp8)
@@ -42,10 +44,10 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
             ) {
 
                 Text(
-                    text = "${ritualSentimentEntity.sentiment} ${ritualSentimentEntity.id} ${ritualSentimentEntity.category}",
+                    text = "${ritualSentimentEntity.sentiment}",
                     style = MaterialTheme.typography.subtitle1,
-                    fontSize = spacing.size16,
-                    maxLines = 6,
+                    fontSize = spacing.size20,
+                    maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
             }

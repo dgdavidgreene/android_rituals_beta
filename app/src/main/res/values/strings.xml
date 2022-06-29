@@ -13,4 +13,8 @@
     <string name="rituals">Rituals</string>
     <string name="add_sentiments">ADD Sentiments</string>
     <string name="sentiments">Sentiments</string>
+    <string name="affirmation_i_am_i_will">I am…, I will…</string>
+    <string name="forgiveness_i_forgive">I forgive…</string>
+    <string name="acceptance_i_accept">I accept…</string>
+    <string name="intention_i_will_try">I will try…</string>
 </resources>
