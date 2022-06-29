@@ -81,8 +81,16 @@ fun SentimentViewScreen(
                 fontSize = spacing.size24,
             )
             Spacer(modifier = Modifier.height(spacing.dp8))
+            if (!sentiment?.modifiedAt.isNullOrBlank()) {
+                Text(
+                    text = "Modified: ${sentiment.modifiedAt}",
+                    style = MaterialTheme.typography.body2,
+                    color = Color.Black.copy(spacing.float0_5)
+                )
+                Spacer(modifier = Modifier.height(spacing.dp8))
+            }
             Text(
-                text = "${sentiment.createdAt}",
+                text = "Created: ${sentiment.createdAt}",
                 style = MaterialTheme.typography.body2,
                 color = Color.Black.copy(spacing.float0_5)
             )

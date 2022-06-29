@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dgdavidgreene.androidritualsbeta.data.Repository
+import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getCurrentTime
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -29,7 +30,7 @@ class SentimentAddViewModel @Inject constructor(private val repository: Reposito
         }
 
         viewModelScope.launch {
-            repository.insertRitualSentimentEntity(sentimentCategoryIdentifier, sentimentContentField, getCreationTime())
+            repository.insertRitualSentimentEntity(sentimentCategoryIdentifier, sentimentContentField, getCurrentTime(), getCurrentTime())
         }
     }
 
@@ -39,12 +40,6 @@ class SentimentAddViewModel @Inject constructor(private val repository: Reposito
 
     fun onContentChange(value:String){
         this.sentimentContentField = value
-    }
-
-    private fun getCreationTime() : String{
-        val date = Date()
-        val sdf = SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault())
-        return sdf.format(date)
     }
 
 }

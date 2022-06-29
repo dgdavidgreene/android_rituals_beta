@@ -2,8 +2,15 @@ package com.dgdavidgreene.androidritualsbeta.ui.theme
 
 import androidx.compose.ui.graphics.Color
 import com.dgdavidgreene.androidritualsbeta.ui.theme.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Util {
+    fun getCurrentTime() : String{
+        val date = Date()
+        val sdf = SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault())
+        return sdf.format(date)
+    }
 
 
     fun getColorIntervals(index:Int): Color {

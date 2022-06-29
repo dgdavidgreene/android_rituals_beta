@@ -23,10 +23,10 @@ class Repository @Inject constructor(private val db: AppDatabase) {
         }
     }
 
-    suspend fun insertRitualSentimentEntity(category: Long, sentiment: String, date: String, id: Long? = null) {
+    suspend fun insertRitualSentimentEntity(category: Long, sentiment: String, created: String, modified: String, id: Long? = null) {
         withContext(Dispatchers.IO) {
             val trimmedSentiment = sentiment.trim()
-            queries.insertRitualSentiment(id, category, trimmedSentiment, date)
+            queries.insertRitualSentiment(id, category, trimmedSentiment, created, modified)
         }
     }
 
