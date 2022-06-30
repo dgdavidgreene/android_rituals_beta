@@ -30,7 +30,7 @@ class SentimentAddViewModel @Inject constructor(private val repository: Reposito
         }
 
         viewModelScope.launch {
-            repository.insertRitualSentimentEntity(sentimentCategoryIdentifier, sentimentContentField, getCurrentTime(), getCurrentTime())
+            repository.insertRitualSentimentEntity(sentimentCategoryIdentifier, sentimentContentField, getCurrentTime())
         }
     }
 

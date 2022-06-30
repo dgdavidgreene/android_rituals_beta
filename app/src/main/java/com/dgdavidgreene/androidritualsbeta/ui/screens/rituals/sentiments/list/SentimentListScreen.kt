@@ -39,6 +39,7 @@ fun SentimentListScreen(
     val sentiments = viewModel.sentiments.collectAsState(
         initial = emptyList()
     ).value
+    sentiments.sortedByDescending { it.createdAt }
 
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -61,7 +62,7 @@ fun SentimentListScreen(
             ) {
 
                 Text(
-                    text = stringResource(id = R.string.sentiments),
+                    text = stringResource(id = R.string.gratitude_i_am_thankful_for),
                     color = black,
                     style = MaterialTheme.typography.h4
                 )

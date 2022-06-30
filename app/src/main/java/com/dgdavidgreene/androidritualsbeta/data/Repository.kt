@@ -17,16 +17,15 @@ class Repository @Inject constructor(private val db: AppDatabase) {
     fun getAllRitualSentiments() = queries.getAllRitualSentiments().asFlow().mapToList()
 
     suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
-        val inputId = id
         return withContext(Dispatchers.IO) {
             queries.getRitualSentimentById(id).executeAsOneOrNull()
         }
     }
 
-    suspend fun insertRitualSentimentEntity(category: Long, sentiment: String, created: String, modified: String, id: Long? = null) {
+    suspend fun insertRitualSentimentEntity(category: Long, sentiment: String, created: String, id: Long? = null) {
         withContext(Dispatchers.IO) {
             val trimmedSentiment = sentiment.trim()
-            queries.insertRitualSentiment(id, category, trimmedSentiment, created, modified)
+            queries.insertRitualSentiment(id, category, trimmedSentiment, created)
         }
     }
 

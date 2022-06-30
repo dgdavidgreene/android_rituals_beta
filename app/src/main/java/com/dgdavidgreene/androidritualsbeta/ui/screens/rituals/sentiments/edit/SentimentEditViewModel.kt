@@ -57,8 +57,7 @@ class SentimentEditViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            val createdAt = sentiment?.createdAt ?: getCurrentTime()
-            repository.insertRitualSentimentEntity(sentimentCategory, sentimentContentField, createdAt, getCurrentTime())
+            repository.insertRitualSentimentEntity(sentimentCategory, sentimentContentField, getCurrentTime(), sentiment?.id)
         }
     }
 

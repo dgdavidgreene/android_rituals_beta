@@ -23,6 +23,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view.SentimentViewViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
+import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.formatTime
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 
 @Composable
@@ -70,9 +71,21 @@ fun SentimentViewScreen(
 
 
         }
+        Spacer(modifier = Modifier.height(spacing.dp16))
+        val category = sentiment?.category ?: 0
+        val categoryLabel = stringResource(id = Ritual.getPreamble(category.toInt()))
+        Text(
+            modifier = Modifier.verticalScroll(rememberScrollState()),
+            text = categoryLabel,
+            style = MaterialTheme.typography.subtitle1,
+            fontWeight = FontWeight.W500,
+            fontSize = spacing.size18,
+            color = Color.Black,
+        )
+
         val textSentiment = sentiment?.sentiment
         sentiment?.let {
-            Spacer(modifier = Modifier.height(spacing.dp16))
+            Spacer(modifier = Modifier.height(spacing.dp8))
             Text(
                 text = "${textSentiment}",
                 style = MaterialTheme.typography.h5,
@@ -81,29 +94,21 @@ fun SentimentViewScreen(
                 fontSize = spacing.size24,
             )
             Spacer(modifier = Modifier.height(spacing.dp8))
-            if (!sentiment?.modifiedAt.isNullOrBlank()) {
+            /*if (!sentiment.modifiedAt.isNullOrBlank()) {
                 Text(
                     text = "Modified: ${sentiment.modifiedAt}",
                     style = MaterialTheme.typography.body2,
                     color = Color.Black.copy(spacing.float0_5)
                 )
                 Spacer(modifier = Modifier.height(spacing.dp8))
-            }
+            }*/
+            val timeLabel = formatTime(sentiment.createdAt)
             Text(
-                text = "Created: ${sentiment.createdAt}",
+                text = "Created: $timeLabel",
                 style = MaterialTheme.typography.body2,
                 color = Color.Black.copy(spacing.float0_5)
             )
-            Spacer(modifier = Modifier.height(spacing.dp8))
-            val category = stringResource(id = Ritual.getPreamble(sentiment?.category.toInt()))
-            Text(
-                modifier = Modifier.verticalScroll(rememberScrollState()),
-                text = category ?: "",
-                style = MaterialTheme.typography.subtitle1,
-                fontWeight = FontWeight.W500,
-                fontSize = spacing.size18,
-                color = Color.Black,
-            )
+
         } ?: kotlin.run {
             Box(
                 modifier = Modifier.fillMaxSize(),

@@ -2,8 +2,7 @@ CREATE TABLE RitualSentimentEntity (
     id INTEGER NOT NULL PRIMARY KEY,
     category INTEGER NOT NULL,
     sentiment TEXT NOT NULL,
-    createdAt TEXT NOT NULL,
-    modifiedAt TEXT
+    createdAt TEXT NOT NULL
 );
 
 
@@ -17,7 +16,7 @@ WHERE id = :id;
 
 insertRitualSentiment:
 INSERT OR REPLACE INTO RitualSentimentEntity
-VALUES(?,?,?,?,?);
+VALUES(?,?,?,?);
 
 deleteRitualSentimentById:
 DELETE FROM RitualSentimentEntity

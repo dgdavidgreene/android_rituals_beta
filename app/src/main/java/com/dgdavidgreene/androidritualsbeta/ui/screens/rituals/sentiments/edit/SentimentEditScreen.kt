@@ -22,6 +22,7 @@ import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.ui.components.BasicTextField
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.components.BasicTextField
+import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.buttonColor
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
@@ -67,6 +68,7 @@ fun SentimentEditScreen(
                             viewModel.onSaveSentiment()
                             if (viewModel.sentiment.toString().isNotBlank()) {
                                 navController.navigateUp()
+                                //navController.navigate(Screen.SentimentEditScreen.route + "/${viewModel.sentiment?.id}")
                             }
                         }
                     ),
