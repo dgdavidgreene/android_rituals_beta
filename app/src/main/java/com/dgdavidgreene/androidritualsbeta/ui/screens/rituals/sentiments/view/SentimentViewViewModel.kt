@@ -10,9 +10,9 @@ import com.dgdavidgreene.androidritualsbeta.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import appdb.RitualSentimentEntity
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util
 import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.composeTimeStamp
 import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.formatDateMonthDefault
+import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.formatDateTimeDefault
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,7 +27,10 @@ class SentimentViewViewModel @Inject constructor(
     var sentiment by mutableStateOf<RitualSentimentEntity?>(null)
         private set
 
-    var createdDate by mutableStateOf<String>("")
+    var createdAt by mutableStateOf<String>("")
+        private set
+
+    var modifiedAt by mutableStateOf<String>("")
         private set
 
     init {
@@ -43,8 +46,10 @@ class SentimentViewViewModel @Inject constructor(
             val id = sentimentId
             sentimentId?.let {
                 sentiment = repository.getRitualSentimentEntityById(it)
-                val dateString = sentiment?.createdAt ?: composeTimeStamp()
-                createdDate = formatDateMonthDefault(dateString)
+                val createdDateString = sentiment?.createdAt ?: composeTimeStamp()
+                val modifiedDateString = sentiment?.modifiedAt ?: composeTimeStamp()
+                createdAt = formatDateMonthDefault(createdDateString)
+                modifiedAt = formatDateTimeDefault(modifiedDateString)
             }
         }
     }

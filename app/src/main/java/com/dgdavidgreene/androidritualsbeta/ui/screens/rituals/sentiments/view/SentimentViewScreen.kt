@@ -31,7 +31,9 @@ fun SentimentViewScreen(
     val spacing = LocalSpacing.current
     viewModel.getSentimentById()
     val sentiment = viewModel.sentiment
-    val createdDate = viewModel.createdDate
+    val createdDate = viewModel.createdAt
+    val modifiedAt = viewModel.modifiedAt
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -91,14 +93,14 @@ fun SentimentViewScreen(
                 fontSize = spacing.size24,
             )
             Spacer(modifier = Modifier.height(spacing.dp8))
-            /*if (!sentiment.modifiedAt.isNullOrBlank()) {
+            if (!sentiment.modifiedAt.isNullOrBlank()) {
                 Text(
-                    text = "Modified: ${sentiment.modifiedAt}",
+                    text = "Modified: $modifiedAt",
                     style = MaterialTheme.typography.body2,
                     color = Color.Black.copy(spacing.float0_5)
                 )
                 Spacer(modifier = Modifier.height(spacing.dp8))
-            }*/
+            }
 
             Text(
                 text = "Created: $createdDate",

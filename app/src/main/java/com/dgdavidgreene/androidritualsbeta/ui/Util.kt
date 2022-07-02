@@ -6,8 +6,9 @@ import java.util.*
 
 object Util {
 
-    private const val timeStampFormatString = "yyyy-MM-dd hh:mm:ss.sss"
-    private const val dateDisplayFormatString = "d MMMM, yyyy"
+    private const val timeStampFormatString = "yyyy-MM-dd HH:mm:ss.sss"
+    private const val dateDisplayFormatString = "MMMM d, yyyy"
+    private const val dateTimeFormatString = "MMMM d, HH:mm:ss"
 
     private fun composeDateTimeStringUS(inputDate: Date): String {
         val sdf = SimpleDateFormat(timeStampFormatString, Locale.US)
@@ -24,6 +25,13 @@ object Util {
     fun formatDateMonthDefault(dateTimeString: String): String {
         val inputDate = convertDateTimeStringUStoDate(dateTimeString)
         val sdf = SimpleDateFormat(dateDisplayFormatString, Locale.getDefault())
+
+        return sdf.format(inputDate)
+    }
+
+    fun formatDateTimeDefault(dateTimeString: String): String {
+        val inputDate = convertDateTimeStringUStoDate(dateTimeString)
+        val sdf = SimpleDateFormat(dateTimeFormatString, Locale.getDefault())
 
         return sdf.format(inputDate)
     }

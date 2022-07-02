@@ -39,7 +39,7 @@ fun SentimentListScreen(
     val sentiments = viewModel.sentiments.collectAsState(
         initial = emptyList()
     ).value
-    sentiments.sortedByDescending { it.createdAt }
+    sentiments.sortedByDescending { it.modifiedAt }
 
     Box(
         modifier = Modifier.fillMaxSize(),

@@ -2,6 +2,7 @@ package com.dgdavidgreene.androidritualsbeta.data
 
 import appdb.RitualSentimentEntity
 import com.dgdavidgreene.androidritualsbeta.AppDatabase
+import com.dgdavidgreene.androidritualsbeta.domain.IRepository
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
 import kotlinx.coroutines.Dispatchers
@@ -10,13 +11,13 @@ import kotlinx.coroutines.withContext
 
 import javax.inject.Inject
 
-class Repository @Inject constructor(private val db: AppDatabase) {
+class Repository @Inject constructor(private val db: AppDatabase): IRepository {
 
     private val queries = db.ritualSentimentEntityQueries
 
     fun getAllRitualSentiments() = queries.getAllRitualSentiments().asFlow().mapToList()
 
-    suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
+    override suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
         return withContext(Dispatchers.IO) {
             queries.getRitualSentimentById(id).executeAsOneOrNull()
         }
