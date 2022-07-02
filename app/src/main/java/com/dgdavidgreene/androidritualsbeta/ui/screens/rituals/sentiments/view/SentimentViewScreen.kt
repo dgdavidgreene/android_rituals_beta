@@ -21,10 +21,7 @@ import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
-import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view.SentimentViewViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.formatTime
-import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 
 @Composable
 fun SentimentViewScreen(
@@ -34,7 +31,7 @@ fun SentimentViewScreen(
     val spacing = LocalSpacing.current
     viewModel.getSentimentById()
     val sentiment = viewModel.sentiment
-
+    val createdDate = viewModel.createdDate
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -87,7 +84,7 @@ fun SentimentViewScreen(
         sentiment?.let {
             Spacer(modifier = Modifier.height(spacing.dp8))
             Text(
-                text = "${textSentiment}",
+                text = "$textSentiment",
                 style = MaterialTheme.typography.h5,
                 fontWeight = FontWeight.W500,
                 color = Color.Black,
@@ -102,9 +99,9 @@ fun SentimentViewScreen(
                 )
                 Spacer(modifier = Modifier.height(spacing.dp8))
             }*/
-            val timeLabel = formatTime(sentiment.createdAt)
+
             Text(
-                text = "Created: $timeLabel",
+                text = "Created: $createdDate",
                 style = MaterialTheme.typography.body2,
                 color = Color.Black.copy(spacing.float0_5)
             )

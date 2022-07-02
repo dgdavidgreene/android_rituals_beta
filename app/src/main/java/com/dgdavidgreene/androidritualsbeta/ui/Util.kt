@@ -1,27 +1,37 @@
 package com.dgdavidgreene.androidritualsbeta.ui.theme
 
 import androidx.compose.ui.graphics.Color
-import com.dgdavidgreene.androidritualsbeta.ui.theme.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 object Util {
-    fun getCurrentTime() : String{
-        val date = Date()
-        // "yyMMddHHmmssZ"
-        val sdf = SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault())
-        return sdf.format(date)
+
+    private const val timeStampFormatString = "yyyy-MM-dd hh:mm:ss.sss"
+    private const val dateDisplayFormatString = "d MMMM, yyyy"
+
+    private fun composeDateTimeStringUS(inputDate: Date): String {
+        val sdf = SimpleDateFormat(timeStampFormatString, Locale.US)
+
+        return sdf.format(inputDate)
     }
 
-    fun formatTime(dateString: String) : String{
-        val inputFormat = SimpleDateFormat("dd MMMM, yyyy", Locale.US)
-        val dateDate: Date = inputFormat.parse(dateString) // You got Date object of 2020 jul 7
-        val outputFormat = SimpleDateFormat("MMMM d, yyyy", Locale.US)
-        println(outputFormat.format(dateDate)) //it prints "2020-07-07"
-        return outputFormat.format(dateDate)
-        /*val date = Date(dateString)
-        val sdf = SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault())
-        return sdf.format(date)*/
+    private fun convertDateTimeStringUStoDate(dateTimeString: String): Date {
+        val sdf = SimpleDateFormat(timeStampFormatString, Locale.US)
+
+        return sdf.parse(dateTimeString)
+    }
+
+    fun formatDateMonthDefault(dateTimeString: String): String {
+        val inputDate = convertDateTimeStringUStoDate(dateTimeString)
+        val sdf = SimpleDateFormat(dateDisplayFormatString, Locale.getDefault())
+
+        return sdf.format(inputDate)
+    }
+
+    fun composeTimeStamp(): String {
+        val date = Date()
+
+        return composeDateTimeStringUS(date)
     }
 
     fun getColorIntervals(index:Int): Color {

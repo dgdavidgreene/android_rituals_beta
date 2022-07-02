@@ -10,9 +10,7 @@ import com.dgdavidgreene.androidritualsbeta.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import appdb.RitualSentimentEntity
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getCurrentTime
-import java.text.SimpleDateFormat
-import java.util.*
+import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.composeTimeStamp
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,6 +26,9 @@ class SentimentEditViewModel @Inject constructor(
         private set
 
     var sentimentContentField by mutableStateOf("")
+        private set
+
+    var createdDate by mutableStateOf("")
         private set
 
 
@@ -57,7 +58,8 @@ class SentimentEditViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            repository.insertRitualSentimentEntity(sentimentCategory, sentimentContentField, getCurrentTime(), sentiment?.id)
+            createdDate = sentiment?.createdAt.toString()
+            repository.insertRitualSentimentEntity(sentimentCategory, sentimentContentField, createdDate, composeTimeStamp(), sentiment?.id)
         }
     }
 
@@ -68,11 +70,5 @@ class SentimentEditViewModel @Inject constructor(
     fun onContentChange(value: String) {
         this.sentimentContentField = value
     }
-
-    /*private fun getCreationTime(): String {
-        val date = Date()
-        val sdf = SimpleDateFormat("dd MMMM, yyyy", Locale.getDefault())
-        return sdf.format(date)
-    }*/
 
 }
