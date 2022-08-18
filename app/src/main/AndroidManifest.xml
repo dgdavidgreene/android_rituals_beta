@@ -4,7 +4,6 @@
     package="com.dgdavidgreene.androidritualsbeta">
 
     <application
-        android:theme="@style/Theme.AndroidRitualsBetaTheme"
         android:name=".RitualApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidRitualsBetaTheme"
         tools:targetApi="31">
+        <activity
+            android:name=".InitialActivity"
+            android:exported="false"
+            android:label="@string/title_activity_initial"
+            android:theme="@style/Theme.AndroidRitualsBetaTheme" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -26,4 +31,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

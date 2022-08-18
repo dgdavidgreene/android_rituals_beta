@@ -11,18 +11,14 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.ui.components.BasicTextField
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
-import com.dgdavidgreene.androidritualsbeta.ui.components.BasicTextField
-import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.buttonColor
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
@@ -91,7 +87,7 @@ fun SentimentEditScreen(
             value = viewModel.sentimentContentField,
             onValueChange = viewModel::onContentChange,
             imeAction = ImeAction.None,
-            placeHolderTitle = stringResource(id = R.string.gratitude_i_am_thankful_for),
+            placeHolderTitle = stringResource(id = R.string.gratitude_i_am_grateful_for),
         )
         Spacer(modifier = Modifier.height(spacing.dp8))
     }
