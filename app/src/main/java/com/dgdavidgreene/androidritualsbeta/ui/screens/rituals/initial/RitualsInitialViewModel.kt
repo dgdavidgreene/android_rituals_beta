@@ -8,5 +8,5 @@ import javax.inject.Inject
 @HiltViewModel
 class RitualsInitialViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    val sentiments = repository.getAllRitualSentiments()
+    //val sentiments = repository.getAllRitualSentiments()
 }

@@ -41,6 +41,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+        /*var isReady = true*/
         var isReady = false
 
         Handler(mainLooper).postDelayed({

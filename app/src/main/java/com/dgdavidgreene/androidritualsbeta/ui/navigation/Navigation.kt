@@ -17,7 +17,7 @@ fun Navigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.RitualsInitialScreen.route
+        startDestination = Screen.RitualsDailyScreen.route
     ) {
         composable(route = Screen.RitualsInitialScreen.route) {
             RitualsInitialScreen(navController = navController)

@@ -30,6 +30,7 @@ import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
+import com.dgdavidgreene.androidritualsbeta.ui.components.RitualCard
 import com.dgdavidgreene.androidritualsbeta.ui.components.SentimentCard
 import com.dgdavidgreene.androidritualsbeta.ui.components.StaggeredVerticalGrid
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
@@ -39,7 +40,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.Util
 import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
-
+import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getColorIntervals
 
 @Composable
 fun RitualsDailyScreen(
@@ -50,86 +51,94 @@ fun RitualsDailyScreen(
     val sentiments = viewModel.sentiments.collectAsState(
         initial = emptyList()
     ).value
-    sentiments.sortedByDescending { it.modifiedAt }
+        sentiments.sortedByDescending { it.modifiedAt }
 
-    Box(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        Column(
+        Box(
             modifier = Modifier.fillMaxSize(),
         ) {
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        start = spacing.dp12,
-                        end = spacing.dp12,
-                        top = spacing.dp12,
-                        bottom = spacing.dp8
-                    ),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+            Column(
+                modifier = Modifier.fillMaxSize(),
             ) {
 
-                Text(
-                    text = stringResource(id = R.string.gratitude),
-                    color = black,
-                    style = MaterialTheme.typography.h4
-                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            start = spacing.dp12,
+                            end = spacing.dp12,
+                            top = spacing.dp12,
+                            bottom = spacing.dp8
+                        ),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
 
-                ImageButton(
-                    icon = Icons.Outlined.Search,
-                    onClick = {
-                        navController.navigate(Screen.SentimentListScreen.route)
-                    }
-                )
-            }
+                    Text(
+                        text = stringResource(id = R.string.rituals_daily),
+                        color = black,
+                        style = MaterialTheme.typography.h4
+                    )
+                }
 
-            if (sentiments.isNullOrEmpty()) {
-
-                    navController.navigate(Screen.RitualsInitialScreen.route)
-
-            } else {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
                 ) {
-
-                    StaggeredVerticalGrid(
-                        maxColumnWidth = spacing.dp220,
-                        modifier = Modifier.padding(spacing.dp8)
+                    RitualCard(
+                        modifier = Modifier,
+                        ritualCategory = stringResource(id = R.string.gratitude),
+                        cardColor = getColorIntervals(0),
+                        //onRitualClick = {}
                     ) {
-
-                        sentiments.forEachIndexed { index, sentiment ->
-                            val color = Util.getColorIntervals(index)
-                            SentimentCard(
-                                modifier = Modifier.padding(),
-                                ritualSentimentEntity = sentiment,
-                                cardColor = color,
-                                //onRitualSentimentClick = {}
-                            ) {
-
-                                navController.navigate(Screen.SentimentViewScreen.route + "/${sentiment.id}")
-
-                            }
-                        }
+                        navController.navigate(Screen.RitualsInitialScreen.route)
+                    }
+                    RitualCard(
+                        modifier = Modifier,
+                        ritualCategory = stringResource(id = R.string.acceptance),
+                        cardColor = getColorIntervals(1),
+                        //onRitualClick = {}
+                    ) {
+                        navController.navigate(Screen.RitualsInitialScreen.route)
+                    }
+                    RitualCard(
+                        modifier = Modifier,
+                        ritualCategory = stringResource(id = R.string.forgiveness),
+                        cardColor = getColorIntervals(2),
+                        //onRitualClick = {}
+                    ) {
+                        navController.navigate(Screen.RitualsInitialScreen.route)
+                    }
+                    RitualCard(
+                        modifier = Modifier,
+                        ritualCategory = stringResource(id = R.string.affirmation),
+                        cardColor = getColorIntervals(3),
+                        //onRitualClick = {}
+                    ) {
+                        navController.navigate(Screen.RitualsInitialScreen.route)
+                    }
+                    RitualCard(
+                        modifier = Modifier,
+                        ritualCategory = stringResource(id = R.string.intention),
+                        cardColor = getColorIntervals(4),
+                        //onRitualClick = {}
+                    ) {
+                        navController.navigate(Screen.RitualsInitialScreen.route)
                     }
                 }
-            }
 
 
-        }
-        ImageButton(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(spacing.dp12),
-            size = spacing.dp64,
-            icon = Icons.Outlined.Add,
-            onClick = {
-                navController.navigate(Screen.SentimentAddScreen.route)
             }
-        )
+            ImageButton(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(spacing.dp12),
+                size = spacing.dp64,
+                icon = Icons.Outlined.Add,
+                onClick = {
+                    navController.navigate(Screen.SentimentAddScreen.route)
+                }
+            )
     }
 }

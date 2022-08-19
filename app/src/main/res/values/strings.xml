@@ -11,6 +11,8 @@
     <string name="gratitude_i_am_grateful_for">I am grateful for…</string>
     <string name="gratitude">Gratitude</string>
     <string name="rituals">Rituals</string>
+    <string name="rituals_daily">Daily Rituals</string>
+    <string name="rituals_initial">Getting Started</string>
     <string name="add_sentiments">ADD Sentiments</string>
     <string name="sentiments">Sentiments</string>
     <string name="affirmation_i_am_i_will">I am…, I will…</string>
