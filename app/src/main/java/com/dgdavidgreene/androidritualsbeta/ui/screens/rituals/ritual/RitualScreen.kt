@@ -13,6 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
+import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
 import com.dgdavidgreene.androidritualsbeta.ui.components.TitleCard
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
@@ -24,15 +25,17 @@ fun RitualScreen(
     viewModel: RitualViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
+    val category = viewModel.category
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(spacing.dp8)
         ) {
-            TitleCard(title = "Title", subTitle = "sub title here", titleSize = spacing.size32, subTitleSize = spacing.size16)
+
+            val title = stringResource(Ritual.getTitle(category))
+            TitleCard(title = title, subTitle = "", titleSize = spacing.size32, subTitleSize = spacing.size16)
             Spacer(modifier = Modifier.height(spacing.dp12))
 
             Row(

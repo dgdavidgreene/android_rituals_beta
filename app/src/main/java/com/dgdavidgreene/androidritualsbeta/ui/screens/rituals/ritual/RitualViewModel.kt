@@ -10,13 +10,13 @@ import javax.inject.Inject
 class RitualViewModel @Inject constructor(private val repository: Repository,
                                           private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    var category: Long? = null
+    var category: Int? = null
         private set
 
     init {
         savedStateHandle.get<String>("category")?.let { category ->
             val id = category
-            this.category = category.toLong()
+            this.category = category.toInt()
 
         }
     }

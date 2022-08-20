@@ -23,7 +23,7 @@ fun TitleCard(
     subTitle: String,
     titleSize: TextUnit = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.size32,
     subTitleSize: TextUnit = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.size24,
-    padding: Dp = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.dp12,
+    padding: Dp = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.dp8,
     //cardColor: Color,
     //onRitualClick : (String) -> Unit = {}
 ) {

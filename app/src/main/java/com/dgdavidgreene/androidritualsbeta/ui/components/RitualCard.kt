@@ -15,13 +15,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 
 @Composable
 fun RitualCard(
     modifier: Modifier = Modifier,
-    ritualCategory: String,
+    ritualCategory: Int,
     cardColor: Color,
-    onRitualClick : (String) -> Unit = {}
+    onRitualClick : (Int) -> Unit = {}
     ) {
         val spacing = LocalSpacing.current
         Box(
@@ -42,7 +44,7 @@ fun RitualCard(
                     .padding(14.dp)
             ) {
                 Text(
-                    text = "${ritualCategory}",
+                    text = stringResource(Ritual.getTitle(ritualCategory)),
                     style = MaterialTheme.typography.subtitle1,
                     fontSize = spacing.size20,
                     maxLines = 3,

@@ -29,10 +29,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
-import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
-import com.dgdavidgreene.androidritualsbeta.ui.components.RitualCard
-import com.dgdavidgreene.androidritualsbeta.ui.components.SentimentCard
-import com.dgdavidgreene.androidritualsbeta.ui.components.StaggeredVerticalGrid
+import com.dgdavidgreene.androidritualsbeta.ui.components.*
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.list.SentimentListViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.view.SentimentViewViewModel
@@ -60,27 +57,7 @@ fun RitualsDailyScreen(
             Column(
                 modifier = Modifier.fillMaxSize(),
             ) {
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(
-                            start = spacing.dp12,
-                            end = spacing.dp12,
-                            top = spacing.dp12,
-                            bottom = spacing.dp8
-                        ),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-
-                    Text(
-                        text = stringResource(id = R.string.rituals_daily),
-                        color = black,
-                        style = MaterialTheme.typography.h4
-                    )
-                }
-
+                TitleCard(title =  stringResource(id = R.string.rituals_daily), subTitle = "")
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -92,7 +69,7 @@ fun RitualsDailyScreen(
 
                         RitualCard(
                             modifier = Modifier,
-                            ritualCategory = stringResource(Ritual.getTitle(category)),
+                            ritualCategory = category,
                             cardColor = getColorIntervals(category),
                             //onRitualClick = {}
                         ) {
