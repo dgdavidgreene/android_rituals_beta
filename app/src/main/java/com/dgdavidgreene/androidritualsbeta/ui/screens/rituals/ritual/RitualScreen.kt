@@ -14,6 +14,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.ui.components.ImageButton
+import com.dgdavidgreene.androidritualsbeta.ui.components.TitleCard
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 
@@ -31,6 +32,9 @@ fun RitualScreen(
                 .fillMaxSize()
                 .padding(spacing.dp8)
         ) {
+            TitleCard(title = "Title", subTitle = "sub title here", titleSize = spacing.size32, subTitleSize = spacing.size16)
+            Spacer(modifier = Modifier.height(spacing.dp12))
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,

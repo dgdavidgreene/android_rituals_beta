@@ -41,7 +41,6 @@ fun RitualCard(
                     .fillMaxWidth()
                     .padding(14.dp)
             ) {
-
                 Text(
                     text = "${ritualCategory}",
                     style = MaterialTheme.typography.subtitle1,
