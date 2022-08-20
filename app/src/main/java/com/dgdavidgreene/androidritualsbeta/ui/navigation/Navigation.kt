@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.ritual.RitualScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.initial.RitualsDailyScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.initial.RitualsInitialScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.list.SentimentListScreen
@@ -25,6 +26,10 @@ fun Navigation(
 
         composable(route = Screen.RitualsDailyScreen.route) {
             RitualsDailyScreen(navController = navController)
+        }
+
+        composable(route = Screen.RitualScreen.route  + "/{category}") {
+            RitualScreen(navController = navController)
         }
 
         composable(route = Screen.SentimentListScreen.route) {

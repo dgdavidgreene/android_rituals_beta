@@ -86,59 +86,20 @@ fun RitualsDailyScreen(
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
                 ) {
-                    RitualCard(
-                        modifier = Modifier,
-                        ritualCategory = stringResource(id = R.string.gratitude),
-                        cardColor = getColorIntervals(0),
-                        //onRitualClick = {}
-                    ) {
-                        navController.navigate(Screen.RitualsInitialScreen.route)
-                    }
-                    RitualCard(
-                        modifier = Modifier,
-                        ritualCategory = stringResource(id = R.string.acceptance),
-                        cardColor = getColorIntervals(1),
-                        //onRitualClick = {}
-                    ) {
-                        navController.navigate(Screen.RitualsInitialScreen.route)
-                    }
-                    RitualCard(
-                        modifier = Modifier,
-                        ritualCategory = stringResource(id = R.string.forgiveness),
-                        cardColor = getColorIntervals(2),
-                        //onRitualClick = {}
-                    ) {
-                        navController.navigate(Screen.RitualsInitialScreen.route)
-                    }
-                    RitualCard(
-                        modifier = Modifier,
-                        ritualCategory = stringResource(id = R.string.affirmation),
-                        cardColor = getColorIntervals(3),
-                        //onRitualClick = {}
-                    ) {
-                        navController.navigate(Screen.RitualsInitialScreen.route)
-                    }
-                    RitualCard(
-                        modifier = Modifier,
-                        ritualCategory = stringResource(id = R.string.intention),
-                        cardColor = getColorIntervals(4),
-                        //onRitualClick = {}
-                    ) {
-                        navController.navigate(Screen.RitualsInitialScreen.route)
+                    for (ritual in Ritual.values()) {
+                        // println(ritual.ordinal)
+                        val category = ritual.ordinal.toInt()
+
+                        RitualCard(
+                            modifier = Modifier,
+                            ritualCategory = stringResource(Ritual.getTitle(category)),
+                            cardColor = getColorIntervals(category),
+                            //onRitualClick = {}
+                        ) {
+                            navController.navigate(Screen.RitualScreen.route + "/${category}")
+                        }
                     }
                 }
-
-
             }
-            ImageButton(
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(spacing.dp12),
-                size = spacing.dp64,
-                icon = Icons.Outlined.Add,
-                onClick = {
-                    navController.navigate(Screen.SentimentAddScreen.route)
-                }
-            )
     }
 }
