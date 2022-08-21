@@ -1,4 +1,4 @@
-package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.initial
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -42,41 +42,36 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getColorIntervals
 @Composable
 fun RitualsDailyScreen(
     navController: NavController,
-    viewModel: SentimentListViewModel = hiltViewModel()
+    viewModel: RitualsDailyViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
-    val sentiments = viewModel.sentiments.collectAsState(
-        initial = emptyList()
-    ).value
-        sentiments.sortedByDescending { it.modifiedAt }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+    ) {
 
-        Box(
+        Column(
             modifier = Modifier.fillMaxSize(),
         ) {
-
+            TitleCard(title =  stringResource(id = R.string.rituals_daily), subTitle = "")
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
             ) {
-                TitleCard(title =  stringResource(id = R.string.rituals_daily), subTitle = "")
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .verticalScroll(rememberScrollState())
-                ) {
-                    for (ritual in Ritual.values()) {
-                        // println(ritual.ordinal)
-                        val category = ritual.ordinal.toInt()
+                for (ritual in Ritual.values()) {
+                    // println(ritual.ordinal)
+                    val category = ritual.ordinal.toInt()
 
-                        RitualCard(
-                            modifier = Modifier,
-                            ritualCategory = category,
-                            cardColor = getColorIntervals(category),
-                            //onRitualClick = {}
-                        ) {
-                            navController.navigate(Screen.RitualScreen.route + "/${category}")
-                        }
+                    RitualCard(
+                        modifier = Modifier,
+                        ritualCategory = category,
+                        cardColor = getColorIntervals(category),
+                        //onRitualClick = {}
+                    ) {
+                        navController.navigate(Screen.RitualScreen.route + "/${category}")
                     }
                 }
             }
+        }
     }
 }

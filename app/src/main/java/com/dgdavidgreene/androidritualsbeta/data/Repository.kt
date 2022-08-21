@@ -17,6 +17,8 @@ class Repository @Inject constructor(private val db: AppDatabase): IRepository {
 
     fun getAllRitualSentiments() = queries.getAllRitualSentiments().asFlow().mapToList()
 
+    fun getAllRitualSentimentsByCategory(category: Long) = queries.getRitualSentimentByCategory(category).asFlow().mapToList()
+
     override suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
         return withContext(Dispatchers.IO) {
             queries.getRitualSentimentById(id).executeAsOneOrNull()
@@ -41,9 +43,4 @@ class Repository @Inject constructor(private val db: AppDatabase): IRepository {
 
     }
 
-    suspend fun getRitualSentimentEntityByCategory(category: Long): Flow<List<RitualSentimentEntity>> {
-        return withContext(Dispatchers.IO) {
-            queries.getRitualSentimentById(category).asFlow().mapToList()
-        }
-    }
 }

@@ -6,5 +6,5 @@ interface IRepository {
     //getAllRitualSentiments
     //suspend fun submitEmail(email: String): Resource<Unit>
     suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity?
-    //suspend fun getRitualSentimentEntityByType(id: Long): RitualSentimentEntity?
+    //suspend fun getAllRitualSentimentsByCategory(category: Long): RitualSentimentEntity?
 }

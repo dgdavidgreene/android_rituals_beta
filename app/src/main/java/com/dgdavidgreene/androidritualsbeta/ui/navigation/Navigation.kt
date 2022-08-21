@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.ritual.RitualScreen
-import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.initial.RitualsDailyScreen
+import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily.RitualsDailyScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.initial.RitualsInitialScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.list.SentimentListScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.add.SentimentAddScreen

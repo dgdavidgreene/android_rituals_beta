@@ -26,3 +26,7 @@ WHERE id=:id;
 searchRitualSentiments:
 SELECT * FROM RitualSentimentEntity WHERE sentiment LIKE '%' || :sentiment || '%';
 
+getRitualSentimentByCategory:
+SELECT *
+FROM RitualSentimentEntity
+WHERE category = :category;
