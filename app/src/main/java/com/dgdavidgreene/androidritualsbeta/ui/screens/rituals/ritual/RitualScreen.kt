@@ -66,9 +66,7 @@ fun RitualScreen(
                     .clickable(
                         onClick = {
                             viewModel.onSaveSentiment()
-                            /*if (viewModel.sentimentContentField.isNotBlank()) {
-                                navController.navigateUp()
-                            }*/
+
                         }
                     ),
                 contentAlignment = Alignment.Center
@@ -92,7 +90,7 @@ fun RitualScreen(
 
                 } else {
                     StaggeredVerticalGrid(
-                    maxColumnWidth = spacing.dp220,
+                    maxColumnWidth = spacing.dp100,
                     modifier = Modifier.padding(spacing.dp4)
                 ) {
                     sentiments.forEachIndexed { index, sentiment ->
@@ -101,6 +99,8 @@ fun RitualScreen(
                             modifier = Modifier.padding(spacing.dp0),
                             ritualSentimentEntity = sentiment,
                             cardColor = color,
+                            fontSize = spacing.size12,
+                            padding = spacing.dp12,
                             //onRitualSentimentClick = {}
                         ) {
 

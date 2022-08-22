@@ -15,10 +15,10 @@
     <string name="rituals_initial">Getting Started</string>
     <string name="add_sentiments">ADD Sentiments</string>
     <string name="sentiments">Sentiments</string>
-    <string name="affirmation_i_am_i_will">I am…, I will…</string>
+    <string name="affirmation_i_am_i_will">I am…</string>
     <string name="forgiveness_i_forgive">I forgive…</string>
     <string name="acceptance_i_accept">I accept…</string>
-    <string name="intention_i_will_try">I will try…</string>
+    <string name="intention_i_will_try">I will try to…</string>
     <string name="affirmation">Affirmation</string>
     <string name="forgiveness">Forgiveness</string>
     <string name="acceptance">Acceptance</string>
