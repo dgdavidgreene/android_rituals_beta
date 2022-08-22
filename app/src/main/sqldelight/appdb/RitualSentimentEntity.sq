@@ -29,4 +29,4 @@ SELECT * FROM RitualSentimentEntity WHERE sentiment LIKE '%' || :sentiment || '%
 getRitualSentimentByCategory:
 SELECT *
 FROM RitualSentimentEntity
-WHERE category = :category;
+WHERE modifiedAt LIKE :date || '%' AND category = :category;

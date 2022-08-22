@@ -34,10 +34,6 @@ class SentimentAddViewModel @Inject constructor(private val repository: Reposito
         }
     }
 
-    fun onCategoryChange(value: Long){
-        this.sentimentCategoryIdentifier = value
-    }
-
     fun onContentChange(value:String){
         this.sentimentContentField = value
     }

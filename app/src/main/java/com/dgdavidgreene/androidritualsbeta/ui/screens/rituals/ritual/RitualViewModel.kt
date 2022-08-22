@@ -12,6 +12,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.Util
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,8 +26,9 @@ class RitualViewModel @Inject constructor(private val repository: Repository,
     init {
         savedStateHandle.get<String>("category")?.let { category ->
             val id = category
+            val today = Util.composeTimeStamp().substring(0, 10)
             this.category = category.toLong()
-            sentiments = repository.getAllRitualSentimentsByCategory(this.category)
+            sentiments = repository.getAllRitualSentimentsByCategory(date = today, category = this.category)
         }
     }
 
@@ -41,6 +43,7 @@ class RitualViewModel @Inject constructor(private val repository: Repository,
         viewModelScope.launch {
             val timeStamp = Util.composeTimeStamp()
             repository.insertRitualSentimentEntity(category, sentimentContentField, timeStamp, timeStamp)
+            sentimentContentField = ""
         }
     }
 
