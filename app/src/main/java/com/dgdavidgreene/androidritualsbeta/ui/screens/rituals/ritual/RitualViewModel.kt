@@ -18,21 +18,17 @@ import javax.inject.Inject
 class RitualViewModel @Inject constructor(private val repository: Repository,
                                           private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    var category: Int? = null
+    var category: Long = 0
         private set
 
-    var sentiments: Flow<List<RitualSentimentEntity>> = emptyFlow() // = repository.getAllRitualSentimentsByCategory(0)
+    var sentiments: Flow<List<RitualSentimentEntity>> = emptyFlow()
     init {
         savedStateHandle.get<String>("category")?.let { category ->
             val id = category
-            this.category = category.toInt()
-            sentiments = repository.getAllRitualSentimentsByCategory(category.toLong())
-
+            this.category = category.toLong()
+            sentiments = repository.getAllRitualSentimentsByCategory(this.category)
         }
     }
-
-    var sentimentCategoryIdentifier by mutableStateOf(0L)
-        private set
 
     var sentimentContentField by mutableStateOf("")
         private set
@@ -44,18 +40,11 @@ class RitualViewModel @Inject constructor(private val repository: Repository,
 
         viewModelScope.launch {
             val timeStamp = Util.composeTimeStamp()
-            repository.insertRitualSentimentEntity(sentimentCategoryIdentifier, sentimentContentField, timeStamp, timeStamp)
+            repository.insertRitualSentimentEntity(category, sentimentContentField, timeStamp, timeStamp)
         }
-    }
-
-    fun onCategoryChange(value: Long){
-        this.sentimentCategoryIdentifier = value
     }
 
     fun onContentChange(value:String){
         this.sentimentContentField = value
     }
-
-
-    //val sentiments = repository.getAllRitualSentiments()
 }

@@ -22,6 +22,7 @@ import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.*
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
+import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.list.EmptySentiments
 import com.dgdavidgreene.androidritualsbeta.ui.theme.*
 import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.take
@@ -44,7 +45,7 @@ Box(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        val title = stringResource(Ritual.getTitle(category))
+        val title = stringResource(Ritual.getTitle(category.toInt()))
         TitleCard(title = title, subTitle = "", titleSize = spacing.size32, subTitleSize = spacing.size16)
         Spacer(modifier = Modifier.height(spacing.dp12))
         BasicTextField(
@@ -53,7 +54,7 @@ Box(
             value = viewModel.sentimentContentField,
             onValueChange = viewModel::onContentChange,
             imeAction = ImeAction.None,
-            placeHolderTitle = stringResource(id = R.string.gratitude_i_am_grateful_for),
+            placeHolderTitle = stringResource(Ritual.getPreamble(category.toInt())),
         )
 
         Box(
@@ -68,9 +69,9 @@ Box(
                 .clickable(
                     onClick = {
                         viewModel.onSaveSentiment()
-                        if (viewModel.sentimentContentField.isNotBlank()) {
+                        /*if (viewModel.sentimentContentField.isNotBlank()) {
                             navController.navigateUp()
-                        }
+                        }*/
                     }
                 ),
             contentAlignment = Alignment.Center
@@ -90,7 +91,10 @@ Box(
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            StaggeredVerticalGrid(
+            if (sentiments.isNullOrEmpty()) {
+
+            } else {
+                StaggeredVerticalGrid(
                 maxColumnWidth = spacing.dp220,
                 modifier = Modifier.padding(spacing.dp4)
             ) {
@@ -108,6 +112,7 @@ Box(
                     }
 
                 }
+            }
             }
         }
 
