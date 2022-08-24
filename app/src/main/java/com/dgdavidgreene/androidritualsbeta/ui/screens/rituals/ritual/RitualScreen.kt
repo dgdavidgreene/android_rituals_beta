@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
@@ -90,7 +92,7 @@ fun RitualScreen(
 
                 } else {
                     StaggeredVerticalGrid(
-                    maxColumnWidth = spacing.dp100,
+                    maxColumnWidth = spacing.dp240,
                     modifier = Modifier.padding(spacing.dp4)
                 ) {
                     sentiments.forEachIndexed { index, sentiment ->
@@ -99,7 +101,7 @@ fun RitualScreen(
                             modifier = Modifier.padding(spacing.dp0),
                             ritualSentimentEntity = sentiment,
                             cardColor = color,
-                            fontSize = spacing.size12,
+                            fontSize = spacing.size16,
                             padding = spacing.dp12,
                             //onRitualSentimentClick = {}
                         ) {
@@ -121,6 +123,17 @@ fun RitualScreen(
         ) {
             navController.navigateUp()
         }
+        Button(
+            modifier = Modifier
+                .align(Alignment.BottomCenter),
+            onClick = {navController.navigate(Screen.RitualsDailyScreen.route)},
+            content = {
+                Text(
+                    modifier = Modifier.width(spacing.dp220),
+                    textAlign = TextAlign.Center,
+                    fontSize = spacing.size16,
+                    text = stringResource(id = com.dgdavidgreene.androidritualsbeta.R.string.rituals_daily))},
+        )
         ImageButton(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
