@@ -2,6 +2,7 @@
     <string name="app_name">Android Rituals Beta</string>
     <string name="error_unknown">Unknown error</string>
     <string name="unbounded_width_not_supported">Unbounded width not supported</string>
+    <string name="add">Add</string>
     <string name="save">Save</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="logo">Logo</string>

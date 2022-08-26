@@ -75,7 +75,7 @@ fun RitualScreen(
             ) {
 
                 Text(
-                    text = stringResource(id = com.dgdavidgreene.androidritualsbeta.R.string.save),
+                    text = stringResource(id = com.dgdavidgreene.androidritualsbeta.R.string.add),
                     color = white,
                     style = MaterialTheme.typography.button
                 )
