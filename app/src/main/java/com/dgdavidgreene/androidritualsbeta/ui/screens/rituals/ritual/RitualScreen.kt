@@ -121,7 +121,12 @@ fun RitualScreen(
                .padding(spacing.dp4),
             icon = Icons.Default.KeyboardArrowLeft
         ) {
-            navController.navigateUp()
+            var prior = category - 1
+            if (prior < 0L) {
+                navController.navigate(Screen.RitualsDailyScreen.route)
+            } else {
+                navController.navigate(Screen.RitualScreen.route + "/${prior}")
+            }
         }
         Button(
             modifier = Modifier
@@ -142,7 +147,7 @@ fun RitualScreen(
         ) {
             val max = Ritual.values().size - 1
             var next = category + 1
-            if (next >= max) {
+            if (next > max) {
                 navController.navigate(Screen.RitualsDailyScreen.route)
             } else {
                 navController.navigate(Screen.RitualScreen.route + "/${next}")
