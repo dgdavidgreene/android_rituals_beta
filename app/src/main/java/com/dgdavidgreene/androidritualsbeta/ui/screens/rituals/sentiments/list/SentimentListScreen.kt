@@ -62,7 +62,7 @@ fun SentimentListScreen(
             ) {
 
                 Text(
-                    text = stringResource(id = R.string.gratitude_i_am_grateful_for),
+                    text = stringResource(id = R.string.gratitude_preamble),
                     color = black,
                     style = MaterialTheme.typography.h4
                 )

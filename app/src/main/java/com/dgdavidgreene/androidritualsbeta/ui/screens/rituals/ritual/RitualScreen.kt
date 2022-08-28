@@ -83,7 +83,10 @@ fun RitualScreen(
             Spacer(modifier = Modifier.height(spacing.dp12))
             PromptProcessPanel(
                 modifier = Modifier.fillMaxWidth(),
-                cardColor = Color.White
+                cardColor = Color.White,
+                mode = 0,
+                category = category.toInt(),
+
             )
             Spacer(modifier = Modifier.height(spacing.dp12))
             Row(

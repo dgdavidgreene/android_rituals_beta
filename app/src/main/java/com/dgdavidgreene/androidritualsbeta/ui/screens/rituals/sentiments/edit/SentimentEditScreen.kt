@@ -87,7 +87,7 @@ fun SentimentEditScreen(
             value = viewModel.sentimentContentField,
             onValueChange = viewModel::onContentChange,
             imeAction = ImeAction.None,
-            placeHolderTitle = stringResource(id = R.string.gratitude_i_am_grateful_for),
+            placeHolderTitle = stringResource(id = R.string.gratitude_preamble),
         )
         Spacer(modifier = Modifier.height(spacing.dp8))
     }

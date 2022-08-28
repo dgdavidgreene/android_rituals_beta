@@ -10,18 +10,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 
 @Composable
 fun PromptProcessPanel (
     modifier: Modifier = Modifier,
-    //ritualCategory: Int,
-    //additionalInfo: String = "",
+    mode: Int = 0,  // 0 prompt, 1 process
+    category: Int = 0,
     cardColor: Color,
     //onRitualClick : (Int) -> Unit = {}
     ) {
     val spacing = LocalSpacing.current
+    val prompt = stringResource(Ritual.getPrompt(category))
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -41,10 +44,10 @@ fun PromptProcessPanel (
             //horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = "Test",
+                text = prompt,
                 style = MaterialTheme.typography.subtitle1,
                 //fontSize = titleSize,
-                maxLines = 1,
+                maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )
         }

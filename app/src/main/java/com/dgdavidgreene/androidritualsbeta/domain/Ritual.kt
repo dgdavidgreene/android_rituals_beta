@@ -16,15 +16,24 @@ enum class Ritual(val value: Int) {
         fun findByValue(value: Int) = types[value]
 
         fun getPreamble(value: Int?) = when (value) {
-            0 -> R.string.gratitude_i_am_grateful_for
-            1 -> R.string.acceptance_i_accept
-            2 -> R.string.forgiveness_i_forgive
-            3 -> R.string.affirmation_i_am_i_will
-            4 -> R.string.intention_i_will_try
-            5 -> R.string.wins_i_won
-            else -> R.string.gratitude_i_am_grateful_for
+            0 -> R.string.gratitude_preamble
+            1 -> R.string.acceptance_preamble
+            2 -> R.string.forgiveness_preamble
+            3 -> R.string.affirmation_preamble
+            4 -> R.string.intention_preamble
+            5 -> R.string.wins_preamble
+            else -> R.string.gratitude_preamble
         }
 
+        fun getPrompt(value: Int?) = when (value) {
+            0 -> R.string.gratitude_prompt
+            1 -> R.string.acceptance_prompt
+            2 -> R.string.forgiveness_prompt
+            3 -> R.string.affirmation_prompt
+            4 -> R.string.intention_prompt
+            5 -> R.string.wins_prompt
+            else -> R.string.gratitude_prompt
+        }
         fun getTitle(value: Int?) = when (value) {
             0 -> R.string.gratitude
             1 -> R.string.acceptance

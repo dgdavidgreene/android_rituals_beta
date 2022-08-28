@@ -1,30 +1,47 @@
 <resources>
-    <string name="app_name">Android Rituals Beta</string>
     <string name="error_unknown">Unknown error</string>
     <string name="unbounded_width_not_supported">Unbounded width not supported</string>
+    <string name="something_went_wrong">Something went wrong</string>
+
+    <string name="app_name">Android Rituals Beta</string>
+    <string name="logo">Logo</string>
+    <string name="log_prefix_">RITUALS==</string>
+
+    <string name="looks_like_empty">Hmm…Looks like it\'s empty here!!</string>
+
+    <string name="search">Search…</string>
     <string name="add">Add</string>
     <string name="save">Save</string>
-    <string name="something_went_wrong">Something went wrong</string>
-    <string name="logo">Logo</string>
-    <string name="search">Search…</string>
-    <string name="log_prefix_">RITUALS==</string>
-    <string name="looks_like_empty">Hmm…Looks like it\'s empty here!!</string>
-    <string name="gratitude_i_am_grateful_for">I am grateful for…</string>
-    <string name="gratitude">Gratitude</string>
     <string name="rituals">Rituals</string>
     <string name="rituals_daily">Daily Rituals</string>
     <string name="rituals_initial">Getting Started</string>
-    <string name="add_sentiments">ADD Sentiments</string>
     <string name="sentiments">Sentiments</string>
-    <string name="affirmation_i_am_i_will">I am…</string>
-    <string name="forgiveness_i_forgive">I forgive…</string>
-    <string name="acceptance_i_accept">I accept…</string>
-    <string name="intention_i_will_try">I will try to…</string>
-    <string name="affirmation">Affirmation</string>
-    <string name="forgiveness">Forgiveness</string>
+    <string name="add_sentiments">Add Sentiments</string>
+    <string name="title_activity_initial">Initial Activity</string>
+
+    <string name="gratitude">Gratitude</string>
+    <string name="gratitude_preamble">I am grateful for…</string>
+    <string name="gratitude_prompt">Think about what you value in your life. What brings you happiness or makes you proud</string>
+
     <string name="acceptance">Acceptance</string>
+    <string name="acceptance_preamble">I accept…</string>
+    <string name="acceptance_prompt">Let go of what you cannot change. Good or not, it is how it is.</string>
+
+    <string name="forgiveness">Forgiveness</string>
+    <string name="forgiveness_preamble">I forgive…</string>
+    <string name="forgiveness_prompt">What can you let go so you can begin to move on.</string>
+
+    <string name="affirmation">Affirmation</string>
+    <string name="affirmation_preamble">I am…</string>
+    <string name="affirmation_prompt">Give yourself a compliment, recognize the good, treat yourself like a friend.</string>
+
     <string name="intention">Intention</string>
+    <string name="intention_preamble">I will try to…</string>
+    <string name="intention_prompt">Pick a direction, start, continue. Try again when you fall short.</string>
+
     <string name="wins">Wins</string>
-    <string name="wins_i_won">I won…</string>
-    <string name="title_activity_initial">InitialActivity</string>
+    <string name="wins_preamble">I won…</string>
+    <string name="wins_prompt">However small, what went well, how did you outdo the usual.</string>
+
+
 </resources>
