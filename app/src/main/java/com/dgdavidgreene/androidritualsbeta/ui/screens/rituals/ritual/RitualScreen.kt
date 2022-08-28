@@ -23,9 +23,7 @@ import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.*
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.theme.*
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.composeTimeStamp
-import java.text.SimpleDateFormat
-import java.util.*
+import com.dgdavidgreene.androidritualsbeta.ui.util.Util
 
 @Composable
 fun RitualScreen(

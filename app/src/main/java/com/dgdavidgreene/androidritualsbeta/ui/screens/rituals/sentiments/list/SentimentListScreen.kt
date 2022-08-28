@@ -26,7 +26,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.components.SentimentCard
 import com.dgdavidgreene.androidritualsbeta.ui.components.StaggeredVerticalGrid
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getColorIntervals
+import com.dgdavidgreene.androidritualsbeta.ui.util.Util.getColorIntervals
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 

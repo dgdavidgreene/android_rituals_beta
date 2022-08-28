@@ -10,9 +10,9 @@ import com.dgdavidgreene.androidritualsbeta.data.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import appdb.RitualSentimentEntity
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.composeTimeStamp
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.formatDateMonthDefault
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.formatDateTimeDefault
+import com.dgdavidgreene.androidritualsbeta.ui.util.DateTimeUtil.composeTimeStamp
+import com.dgdavidgreene.androidritualsbeta.ui.util.DateTimeUtil.formatDateMonthDefault
+import com.dgdavidgreene.androidritualsbeta.ui.util.DateTimeUtil.formatDateTimeDefault
 import javax.inject.Inject
 
 @HiltViewModel

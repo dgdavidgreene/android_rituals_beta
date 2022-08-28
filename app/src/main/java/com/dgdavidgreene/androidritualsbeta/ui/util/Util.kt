@@ -1,10 +1,12 @@
-package com.dgdavidgreene.androidritualsbeta.ui.theme
+package com.dgdavidgreene.androidritualsbeta.ui.util
 
 import androidx.compose.ui.graphics.Color
+import com.dgdavidgreene.androidritualsbeta.ui.theme.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 object Util {
+/*
 
     private const val timeStampFormatString = "yyyy-MM-dd HH:mm:ss.sss"
     private const val dateDisplayFormatString = "MMMM d, yyyy"
@@ -41,6 +43,7 @@ object Util {
 
         return composeDateTimeStringUS(date)
     }
+*/
 
     fun getColorIntervals(index:Int): Color {
         return when (index % 8) {

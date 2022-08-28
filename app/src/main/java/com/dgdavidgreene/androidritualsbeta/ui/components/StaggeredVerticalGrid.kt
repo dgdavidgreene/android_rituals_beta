@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.shortestColumn
+import com.dgdavidgreene.androidritualsbeta.ui.util.Util.shortestColumn
 import kotlin.math.ceil
 
 @Composable

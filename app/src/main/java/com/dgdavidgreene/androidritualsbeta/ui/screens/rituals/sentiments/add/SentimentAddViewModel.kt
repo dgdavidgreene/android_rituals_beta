@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dgdavidgreene.androidritualsbeta.data.Repository
-import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.composeTimeStamp
+import com.dgdavidgreene.androidritualsbeta.ui.util.DateTimeUtil.composeTimeStamp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 
