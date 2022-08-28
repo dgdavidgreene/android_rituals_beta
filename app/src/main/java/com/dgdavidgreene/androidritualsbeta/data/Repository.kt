@@ -19,6 +19,8 @@ class Repository @Inject constructor(private val db: AppDatabase): IRepository {
 
     fun getAllRitualSentimentsByCategory(date: String, category: Long) = queries.getRitualSentimentByCategory(date, category).asFlow().mapToList()
 
+    fun getRitualSentimentCountsByCategory(date: String) = queries.getRitualSentimentCountByCategory(date).asFlow().mapToList()
+
     override suspend fun getRitualSentimentEntityById(id: Long): RitualSentimentEntity? {
         return withContext(Dispatchers.IO) {
             queries.getRitualSentimentById(id).executeAsOneOrNull()

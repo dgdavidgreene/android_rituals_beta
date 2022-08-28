@@ -2,14 +2,12 @@ package com.dgdavidgreene.androidritualsbeta.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -22,6 +20,7 @@ import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 fun RitualCard(
     modifier: Modifier = Modifier,
     ritualCategory: Int,
+    additionalInfo: String = "",
     cardColor: Color,
     onRitualClick : (Int) -> Unit = {}
     ) {
@@ -38,18 +37,29 @@ fun RitualCard(
                 { onRitualClick(ritualCategory) }),
         ) {
 
-            Column(
+            Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(14.dp)
+                    .padding(14.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text(
-                    text = stringResource(Ritual.getTitle(ritualCategory)),
-                    style = MaterialTheme.typography.subtitle1,
-                    fontSize = spacing.size20,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
-                )
+
+                    Text(
+                        text = stringResource(Ritual.getTitle(ritualCategory)),
+                        style = MaterialTheme.typography.subtitle1,
+                        fontSize = spacing.size20,
+                        maxLines = 3,
+                        overflow = TextOverflow.Ellipsis
+                    )
+
+                    Text(
+                        text = additionalInfo,
+                        style = MaterialTheme.typography.subtitle1,
+                        fontSize = spacing.size20,
+                        maxLines = 3,
+                        overflow = TextOverflow.Ellipsis
+                    )
+
             }
         }
 

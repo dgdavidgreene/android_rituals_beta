@@ -8,5 +8,6 @@ import javax.inject.Inject
 @HiltViewModel
 class RitualsDailyViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    //val sentiments = repository.getAllRitualSentiments()
+    val today = "2022-08-27"
+    val sentimentCounts = repository.getRitualSentimentCountsByCategory(today)
 }

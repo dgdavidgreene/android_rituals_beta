@@ -7,7 +7,8 @@ enum class Ritual(val value: Int) {
     ACCEPTANCE(1),
     FORGIVENESS(2),
     AFFIRMATION(3),
-    INTENTION(4);
+    INTENTION(4),
+    WINS(5);
 
     companion object {
         private val types = values().associateBy { it.value }
@@ -20,6 +21,7 @@ enum class Ritual(val value: Int) {
             2 -> R.string.forgiveness_i_forgive
             3 -> R.string.affirmation_i_am_i_will
             4 -> R.string.intention_i_will_try
+            5 -> R.string.wins_i_won
             else -> R.string.gratitude_i_am_grateful_for
         }
 
@@ -29,6 +31,7 @@ enum class Ritual(val value: Int) {
             2 -> R.string.forgiveness
             3 -> R.string.affirmation
             4 -> R.string.intention
+            5 -> R.string.wins
             else -> R.string.gratitude
         }
     }

@@ -38,6 +38,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.theme.Util
 import com.dgdavidgreene.androidritualsbeta.ui.theme.black
 import com.dgdavidgreene.androidritualsbeta.ui.theme.white
 import com.dgdavidgreene.androidritualsbeta.ui.theme.Util.getColorIntervals
+import kotlinx.coroutines.flow.toCollection
 
 @Composable
 fun RitualsDailyScreen(
@@ -45,6 +46,10 @@ fun RitualsDailyScreen(
     viewModel: RitualsDailyViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
+    val sentimentCounts = viewModel.sentimentCounts.collectAsState(
+        initial = emptyList()
+    ).value
+
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -59,12 +64,13 @@ fun RitualsDailyScreen(
                     .verticalScroll(rememberScrollState())
             ) {
                 for (ritual in Ritual.values()) {
-                    // println(ritual.ordinal)
                     val category = ritual.ordinal.toInt()
+                    //val categoryCount = sentimentCounts[category]
 
                     RitualCard(
                         modifier = Modifier,
                         ritualCategory = category,
+                        additionalInfo = category.toString(),
                         cardColor = getColorIntervals(category),
                         //onRitualClick = {}
                     ) {

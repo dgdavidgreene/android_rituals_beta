@@ -24,5 +24,7 @@
     <string name="forgiveness">Forgiveness</string>
     <string name="acceptance">Acceptance</string>
     <string name="intention">Intention</string>
+    <string name="wins">Wins</string>
+    <string name="wins_i_won">I won…</string>
     <string name="title_activity_initial">InitialActivity</string>
 </resources>
