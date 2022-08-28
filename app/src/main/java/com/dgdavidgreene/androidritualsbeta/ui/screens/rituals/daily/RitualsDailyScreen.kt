@@ -9,7 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import appdb.GetRitualSentimentCountByCategory
 import com.dgdavidgreene.androidritualsbeta.R
+import com.dgdavidgreene.androidritualsbeta.domain.CategoryCount
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.*
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
@@ -39,14 +41,24 @@ fun RitualsDailyScreen(
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
             ) {
+                var countsByCategory: ArrayList<CategoryCount> = arrayListOf()
+                sentimentCounts.forEach { sentimentCount ->
+                    var categoryCount = CategoryCount()
+                    categoryCount.category = sentimentCount.category
+                    categoryCount.count = sentimentCount.COUNT
+                    countsByCategory.add(categoryCount)
+                }
                 for (ritual in Ritual.values()) {
                     val category = ritual.ordinal.toInt()
-                    //val categoryCount = sentimentCounts[category]
-
+                    var categoryCount = 0L
+                    val sentimentCount = countsByCategory.find { sentiment -> sentiment.category.toInt() === category }
+                    if (sentimentCount != null) {
+                        categoryCount = sentimentCount.count
+                    }
                     RitualCard(
                         modifier = Modifier,
                         ritualCategory = category,
-                        additionalInfo = category.toString(),
+                        additionalInfo = categoryCount.toString(),
                         cardColor = getColorIntervals(category),
                         //onRitualClick = {}
                     ) {

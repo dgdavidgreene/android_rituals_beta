@@ -25,8 +25,7 @@ class RitualViewModel @Inject constructor(private val repository: Repository,
     var sentiments: Flow<List<RitualSentimentEntity>> = emptyFlow()
     init {
         savedStateHandle.get<String>("category")?.let { category ->
-            val id = category
-            val today = DateTimeUtil.composeTimeStamp().substring(0, 10)
+            val today = DateTimeUtil.getTodayString()
             this.category = category.toLong()
             sentiments = repository.getAllRitualSentimentsByCategory(date = today, category = this.category)
         }

@@ -34,6 +34,5 @@ WHERE modifiedAt LIKE :date || '%' AND category = :category;
 getRitualSentimentCountByCategory:
 SELECT category, COUNT(*)
 FROM RitualSentimentEntity
-GROUP BY category
-HAVING modifiedAt LIKE :date || '%';
-
+WHERE modifiedAt LIKE :date || '%'
+GROUP BY category;

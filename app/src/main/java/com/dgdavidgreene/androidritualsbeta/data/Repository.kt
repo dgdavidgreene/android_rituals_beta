@@ -40,9 +40,9 @@ class Repository @Inject constructor(private val db: AppDatabase): IRepository {
         }
     }
 
-    fun searchRitualSentimentEntity(keyword: String): Flow<List<RitualSentimentEntity>> {
+    /*fun searchRitualSentimentEntity(keyword: String): Flow<List<RitualSentimentEntity>> {
         return queries.searchRitualSentiments(keyword).asFlow().mapToList()
 
-    }
+    }*/
 
 }

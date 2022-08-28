@@ -42,18 +42,8 @@ object DateTimeUtil {
             return composeDateTimeStringUS(date)
         }
 
-        fun getColorIntervals(index:Int): Color {
-            return when (index % 8) {
-                0 -> card9
-                1 -> card2
-                2 -> card3
-                3 -> card4
-                4 -> card5
-                5 -> card6
-                6 -> card7
-                7 -> card8
-                else -> card1
-            }
+        fun getTodayString(): String {
+            return composeTimeStamp().substring(0, 10)
         }
 
         fun shortestColumn(colHeights: IntArray): Int {

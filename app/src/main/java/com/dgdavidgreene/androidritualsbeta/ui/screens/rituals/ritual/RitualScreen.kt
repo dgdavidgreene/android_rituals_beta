@@ -113,16 +113,14 @@ fun RitualScreen(
             }
 
         }
-        ImageButton(
-           modifier = Modifier
-               .align(Alignment.BottomStart)
-               .padding(spacing.dp4),
-            icon = Icons.Default.KeyboardArrowLeft
-        ) {
-            var prior = category - 1
-            if (prior < 0L) {
-                navController.navigate(Screen.RitualsDailyScreen.route)
-            } else {
+        var prior = category - 1
+        if (prior >= 0L) {
+            ImageButton(
+               modifier = Modifier
+                   .align(Alignment.BottomStart)
+                   .padding(spacing.dp4),
+                icon = Icons.Default.KeyboardArrowLeft
+            ) {
                 navController.navigate(Screen.RitualScreen.route + "/${prior}")
             }
         }
@@ -137,20 +135,17 @@ fun RitualScreen(
                     fontSize = spacing.size16,
                     text = stringResource(id = com.dgdavidgreene.androidritualsbeta.R.string.rituals_daily))},
         )
-        ImageButton(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .padding(spacing.dp4),
-            icon = Icons.Default.KeyboardArrowRight
-        ) {
-            val max = Ritual.values().size - 1
-            var next = category + 1
-            if (next > max) {
-                navController.navigate(Screen.RitualsDailyScreen.route)
-            } else {
+        val max = Ritual.values().size - 1
+        var next = category + 1
+        if (next <= max) {
+            ImageButton(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(spacing.dp4),
+                icon = Icons.Default.KeyboardArrowRight
+            ) {
                 navController.navigate(Screen.RitualScreen.route + "/${next}")
             }
-
         }
     }
 }
