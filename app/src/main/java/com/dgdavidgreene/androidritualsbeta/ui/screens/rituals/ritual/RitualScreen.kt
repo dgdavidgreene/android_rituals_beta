@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
@@ -79,8 +80,12 @@ fun RitualScreen(
                 )
 
             }
-
-
+            Spacer(modifier = Modifier.height(spacing.dp12))
+            PromptProcessPanel(
+                modifier = Modifier.fillMaxWidth(),
+                cardColor = Color.White
+            )
+            Spacer(modifier = Modifier.height(spacing.dp12))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Start,
