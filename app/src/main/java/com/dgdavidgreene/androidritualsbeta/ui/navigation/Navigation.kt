@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.ritual.RitualScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily.RitualsDailyScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.initial.RitualsInitialScreen
+import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.recap.RecapScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.list.SentimentListScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.add.SentimentAddScreen
 import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.sentiments.edit.SentimentEditScreen
@@ -46,6 +47,10 @@ fun Navigation(
 
         composable(route = Screen.SentimentEditScreen.route  + "/{sentimentId}") {
             SentimentEditScreen(navController = navController)
+        }
+
+        composable(route = Screen.RecapScreen.route ) {
+            RecapScreen(navController = navController)
         }
     }
 }

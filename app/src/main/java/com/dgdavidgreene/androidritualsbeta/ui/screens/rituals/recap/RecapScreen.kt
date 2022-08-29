@@ -1,32 +1,29 @@
-package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily
+package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.recap
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import appdb.GetRitualSentimentCountByCategory
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.domain.CategoryCount
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
-import com.dgdavidgreene.androidritualsbeta.ui.components.*
+import com.dgdavidgreene.androidritualsbeta.ui.components.RitualCard
+import com.dgdavidgreene.androidritualsbeta.ui.components.StandardButton
+import com.dgdavidgreene.androidritualsbeta.ui.components.TitleCard
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
+import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily.RitualsDailyViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
-import com.dgdavidgreene.androidritualsbeta.ui.theme.white
-import com.dgdavidgreene.androidritualsbeta.ui.util.Util.getColorIntervals
+import com.dgdavidgreene.androidritualsbeta.ui.util.Util
 
 @Composable
-fun RitualsDailyScreen(
+fun RecapScreen(
     navController: NavController,
-    viewModel: RitualsDailyViewModel = hiltViewModel()
+    viewModel: RecapViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     val sentimentCounts = viewModel.sentimentCounts.collectAsState(
@@ -36,12 +33,12 @@ fun RitualsDailyScreen(
     Box(
         modifier = Modifier.fillMaxSize(),
 
-    ) {
+        ) {
 
         Column(
             modifier = Modifier.fillMaxSize(),
         ) {
-            TitleCard(title =  stringResource(id = R.string.rituals_daily), subTitle = "")
+            TitleCard(title =  "Recap Screen", subTitle = "")
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -65,7 +62,7 @@ fun RitualsDailyScreen(
                         modifier = Modifier,
                         ritualCategory = category,
                         additionalInfo = categoryCount.toString(),
-                        cardColor = getColorIntervals(category),
+                        cardColor = Util.getColorIntervals(category),
                         //onRitualClick = {}
                     ) {
                         navController.navigate(Screen.RitualScreen.route + "/${category}")
@@ -73,15 +70,15 @@ fun RitualsDailyScreen(
                 }
                 Spacer(modifier = Modifier.height(spacing.dp64))
                 Row(
-                 horizontalArrangement = Arrangement.Center,
+                    horizontalArrangement = Arrangement.Center,
                     modifier = Modifier
                         .fillMaxWidth()
                 ) {
                     StandardButton(
-                        label = stringResource(id = com.dgdavidgreene.androidritualsbeta.R.string.recap),
+                        label = stringResource(id = R.string.recap),
                         widthFraction = spacing.float0_5,
                     ) {
-                        navController.navigate(Screen.RecapScreen.route)
+                        navController.navigate(Screen.RitualsInitialScreen.route)
                     }
                 }
             }

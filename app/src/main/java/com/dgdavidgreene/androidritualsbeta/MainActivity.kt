@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
 
         Handler(mainLooper).postDelayed({
             isReady = true
-        }, 100)
+        }, 0)
 
         // Set up an OnPreDrawListener to the root view.
         val content: View = findViewById(android.R.id.content)

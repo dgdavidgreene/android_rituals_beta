@@ -8,4 +8,5 @@ sealed class Screen(val route:String) {
     object SentimentAddScreen : Screen("sentiment_add_screen")
     object SentimentEditScreen : Screen("sentiment_edit_screen")
     object SentimentViewScreen : Screen("sentiment_view_screen")
+    object RecapScreen : Screen("recap_screen")
 }

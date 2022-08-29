@@ -53,6 +53,7 @@ fun PromptProcessPanel (
                     overflow = TextOverflow.Ellipsis
                 )
 
+
             } else {
                 val process = stringResource(com.dgdavidgreene.androidritualsbeta.R.string.process)
                 Text(
