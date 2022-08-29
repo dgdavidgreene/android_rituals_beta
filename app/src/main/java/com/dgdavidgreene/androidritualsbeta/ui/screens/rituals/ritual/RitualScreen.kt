@@ -36,6 +36,7 @@ fun RitualScreen(
     val sentiments = viewModel.sentiments.collectAsState(
         initial = emptyList()
     ).value
+
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -67,7 +68,7 @@ fun RitualScreen(
                     .clickable(
                         onClick = {
                             viewModel.onSaveSentiment()
-
+                            viewModel.promptProcessPanelMode = 0
                         }
                     ),
                 contentAlignment = Alignment.Center
@@ -84,7 +85,7 @@ fun RitualScreen(
             PromptProcessPanel(
                 modifier = Modifier.fillMaxWidth(),
                 cardColor = Color.White,
-                mode = 0,
+                mode = viewModel.promptProcessPanelMode,
                 category = category.toInt(),
 
             )
@@ -135,7 +136,7 @@ fun RitualScreen(
         Button(
             modifier = Modifier
                 .align(Alignment.BottomCenter),
-            onClick = {navController.navigate(Screen.RitualsDailyScreen.route)},
+            onClick = { navController.navigate(Screen.RitualsDailyScreen.route)},
             content = {
                 Text(
                     modifier = Modifier.width(spacing.dp220),

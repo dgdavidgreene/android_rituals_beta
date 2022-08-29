@@ -22,6 +22,9 @@ class RitualViewModel @Inject constructor(private val repository: Repository,
     var category: Long = 0
         private set
 
+    var promptProcessPanelMode: Int = 0
+        //private set
+
     var sentiments: Flow<List<RitualSentimentEntity>> = emptyFlow()
     init {
         savedStateHandle.get<String>("category")?.let { category ->
@@ -48,5 +51,6 @@ class RitualViewModel @Inject constructor(private val repository: Repository,
 
     fun onContentChange(value:String){
         this.sentimentContentField = value
+        this.promptProcessPanelMode = 1
     }
 }

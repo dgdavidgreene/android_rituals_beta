@@ -24,7 +24,7 @@ fun PromptProcessPanel (
     //onRitualClick : (Int) -> Unit = {}
     ) {
     val spacing = LocalSpacing.current
-    val prompt = stringResource(Ritual.getPrompt(category))
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -33,8 +33,8 @@ fun PromptProcessPanel (
                 shape = RoundedCornerShape(spacing.dp8),
                 color = cardColor
             )
-            .clickable(onClick =
-            {  }),
+            /*.clickable(onClick =
+            {  }),*/
     ) {
 
         Column(
@@ -43,13 +43,26 @@ fun PromptProcessPanel (
                 .padding(14.dp),
             //horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            Text(
-                text = prompt,
-                style = MaterialTheme.typography.subtitle1,
-                //fontSize = titleSize,
-                maxLines = 3,
-                overflow = TextOverflow.Ellipsis
-            )
+            if (mode === 0) {
+                val prompt = stringResource(Ritual.getPrompt(category))
+                Text(
+                    text = prompt,
+                    style = MaterialTheme.typography.subtitle1,
+                    //fontSize = titleSize,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis
+                )
+
+            } else {
+                val process = stringResource(com.dgdavidgreene.androidritualsbeta.R.string.process)
+                Text(
+                    text = process,
+                    style = MaterialTheme.typography.subtitle1,
+                    //fontSize = titleSize,
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
         }
     }
 }
