@@ -8,7 +8,8 @@ CREATE TABLE RitualSentimentEntity (
 
 
 getAllRitualSentiments:
-SELECT * FROM RitualSentimentEntity;
+SELECT * FROM RitualSentimentEntity
+WHERE modifiedAt LIKE :date || '%';
 
 getRitualSentimentById:
 SELECT *

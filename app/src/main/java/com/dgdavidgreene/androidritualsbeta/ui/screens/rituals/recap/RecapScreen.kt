@@ -9,10 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import appdb.RitualSentimentEntity
 import com.dgdavidgreene.androidritualsbeta.R
 import com.dgdavidgreene.androidritualsbeta.domain.CategoryCount
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.RitualCard
+import com.dgdavidgreene.androidritualsbeta.ui.components.RitualSummaryPanel
 import com.dgdavidgreene.androidritualsbeta.ui.components.StandardButton
 import com.dgdavidgreene.androidritualsbeta.ui.components.TitleCard
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
@@ -26,6 +28,9 @@ fun RecapScreen(
     viewModel: RecapViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
+    val sentiments = viewModel.sentiments.collectAsState(
+        initial = emptyList()
+    ).value
     val sentimentCounts = viewModel.sentimentCounts.collectAsState(
         initial = emptyList()
     ).value
@@ -44,29 +49,25 @@ fun RecapScreen(
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
             ) {
-                var countsByCategory: ArrayList<CategoryCount> = arrayListOf()
-                sentimentCounts.forEach { sentimentCount ->
-                    var categoryCount = CategoryCount()
-                    categoryCount.category = sentimentCount.category
-                    categoryCount.count = sentimentCount.COUNT
-                    countsByCategory.add(categoryCount)
-                }
+
                 for (ritual in Ritual.values()) {
                     val category = ritual.ordinal.toInt()
-                    var categoryCount = 0L
-                    val sentimentCount = countsByCategory.find { sentiment -> sentiment.category.toInt() === category }
-                    if (sentimentCount != null) {
-                        categoryCount = sentimentCount.count
+                    var sentimentList: Array<String> = arrayOf()
+                    sentiments
+                        .filter {
+                            sentiment -> sentiment.category === category.toLong()
+                        }
+                        .forEach { sentiment ->
+                        val item = sentiment.sentiment
+                        sentimentList = sentimentList.plus(item)
                     }
-                    RitualCard(
+                    RitualSummaryPanel(
                         modifier = Modifier,
-                        ritualCategory = category,
-                        additionalInfo = categoryCount.toString(),
+                        text = stringResource(Ritual.getTitle(category)),
+                        preamble = stringResource(Ritual.getPreamble(category)),
                         cardColor = Util.getColorIntervals(category),
-                        //onRitualClick = {}
-                    ) {
-                        navController.navigate(Screen.RitualScreen.route + "/${category}")
-                    }
+                        sentiments = sentimentList,
+                    )
                 }
                 Spacer(modifier = Modifier.height(spacing.dp64))
                 Row(
@@ -75,10 +76,10 @@ fun RecapScreen(
                         .fillMaxWidth()
                 ) {
                     StandardButton(
-                        label = stringResource(id = R.string.recap),
+                        label = stringResource(id = R.string.rituals_daily),
                         widthFraction = spacing.float0_5,
                     ) {
-                        navController.navigate(Screen.RitualsInitialScreen.route)
+                        navController.navigate(Screen.RitualsDailyScreen.route)
                     }
                 }
             }
