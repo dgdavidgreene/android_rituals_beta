@@ -2,6 +2,7 @@ package com.dgdavidgreene.androidritualsbeta.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -30,7 +31,7 @@ fun RitualSummaryPanel(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(cardColor)
+            .background(color = cardColor, shape = RoundedCornerShape(spacing.dp8))
     ) {
         Column() {
             var count = 0
@@ -47,7 +48,8 @@ fun RitualSummaryPanel(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 6.dp),
+                    .padding(horizontal = 14.dp)
+                ,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
@@ -65,7 +67,7 @@ fun RitualSummaryPanel(
                     overflow = TextOverflow.Ellipsis
                 )
             }
-            Row(
+            /*Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 6.dp),
@@ -78,16 +80,16 @@ fun RitualSummaryPanel(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-            }
+            }*/
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 6.dp),
+                    .padding(horizontal = 14.dp),
                 //horizontalArrangement = Arrangement.SpaceBetween
             ) {
 
                 Text(
-                    text = "${list}",
+                    text = "${preamble} ${list}",
                     style = MaterialTheme.typography.subtitle1,
                     fontSize = listSize,
                     maxLines = 6,
@@ -97,4 +99,5 @@ fun RitualSummaryPanel(
             Spacer(modifier = Modifier.height(spacing.dp12))
         }
     }
+    Spacer(modifier = Modifier.height(spacing.dp5))
 }
