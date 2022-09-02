@@ -6,12 +6,11 @@ import com.dgdavidgreene.androidritualsbeta.domain.IRepository
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
 import javax.inject.Inject
 
-class Repository @Inject constructor(private val db: AppDatabase): IRepository {
+class Repository @Inject constructor(db: AppDatabase): IRepository {
 
     private val queries = db.ritualSentimentEntityQueries
 

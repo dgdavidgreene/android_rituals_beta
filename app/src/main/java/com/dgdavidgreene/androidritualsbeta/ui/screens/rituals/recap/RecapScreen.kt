@@ -9,16 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import appdb.RitualSentimentEntity
 import com.dgdavidgreene.androidritualsbeta.R
-import com.dgdavidgreene.androidritualsbeta.domain.CategoryCount
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
-import com.dgdavidgreene.androidritualsbeta.ui.components.RitualCard
 import com.dgdavidgreene.androidritualsbeta.ui.components.RitualSummaryPanel
 import com.dgdavidgreene.androidritualsbeta.ui.components.StandardButton
 import com.dgdavidgreene.androidritualsbeta.ui.components.TitleCard
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
-import com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily.RitualsDailyViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.util.Util
 
@@ -29,9 +25,6 @@ fun RecapScreen(
 ) {
     val spacing = LocalSpacing.current
     val sentiments = viewModel.sentiments.collectAsState(
-        initial = emptyList()
-    ).value
-    val sentimentCounts = viewModel.sentimentCounts.collectAsState(
         initial = emptyList()
     ).value
 
@@ -51,11 +44,11 @@ fun RecapScreen(
             ) {
 
                 for (ritual in Ritual.values()) {
-                    val category = ritual.ordinal.toInt()
+                    val category = ritual.ordinal
                     var sentimentList: Array<String> = arrayOf()
                     sentiments
                         .filter {
-                            sentiment -> sentiment.category === category.toLong()
+                            sentiment -> sentiment.category == category.toLong()
                         }
                         .forEach { sentiment ->
                         val item = sentiment.sentiment

@@ -6,7 +6,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
@@ -19,10 +18,9 @@ fun RitualSummaryPanel(
     modifier: Modifier = Modifier,
     cardColor: Color,
     text: String,
-    textSize: TextUnit = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.size20,
+    textSize: TextUnit = LocalSpacing.current.size20,
     preamble: String,
-    preambleSize: TextUnit = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.size12,
-    listSize: TextUnit = com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing.current.size14,
+    listSize: TextUnit = LocalSpacing.current.size14,
     sentiments: Array<String>,
 ) {
     val spacing = LocalSpacing.current
@@ -41,7 +39,7 @@ fun RitualSummaryPanel(
                 if (count > 1) {
                     list = "$list, $sentiment"
                 } else {
-                    list = "$sentiment"
+                    list = sentiment
                 }
 
             }
@@ -53,7 +51,7 @@ fun RitualSummaryPanel(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "${text}",
+                    text = text,
                     style = MaterialTheme.typography.subtitle1,
                     fontSize = textSize,
                     maxLines = 1,
