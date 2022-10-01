@@ -14,11 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidRitualsBetaTheme"
         tools:targetApi="31">
-        <activity
+        <!--<activity
             android:name=".InitialActivity"
             android:exported="false"
             android:label="@string/title_activity_initial"
-            android:theme="@style/Theme.AndroidRitualsBetaTheme" />
+            android:theme="@style/Theme.AndroidRitualsBetaTheme" />-->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".CounterNotificationReceiver" />
     </application>
 
 </manifest>

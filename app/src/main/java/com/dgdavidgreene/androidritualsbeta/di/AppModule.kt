@@ -1,13 +1,17 @@
 package com.dgdavidgreene.androidritualsbeta.di
 
 import android.app.Application
+import android.content.Context
 import com.dgdavidgreene.androidritualsbeta.AppDatabase
 import com.dgdavidgreene.androidritualsbeta.data.Repository
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.CounterNotificationService
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.ICounterNotificationService
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.internal.Contexts.getApplication
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -34,4 +38,9 @@ object AppModule {
         )
     }
 
+    @Provides
+    @Singleton
+    fun provideCounterNotificationService(application: Application): CounterNotificationService {
+        return CounterNotificationService(application.applicationContext)
+    }
 }

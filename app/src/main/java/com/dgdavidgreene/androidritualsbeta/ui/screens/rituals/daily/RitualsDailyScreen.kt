@@ -1,8 +1,11 @@
 package com.dgdavidgreene.androidritualsbeta.ui.screens.rituals.daily
 
+import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -14,13 +17,16 @@ import com.dgdavidgreene.androidritualsbeta.domain.CategoryCount
 import com.dgdavidgreene.androidritualsbeta.domain.Ritual
 import com.dgdavidgreene.androidritualsbeta.ui.components.*
 import com.dgdavidgreene.androidritualsbeta.ui.navigation.Screen
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.Counter
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.CounterNotificationService
 import com.dgdavidgreene.androidritualsbeta.ui.theme.LocalSpacing
 import com.dgdavidgreene.androidritualsbeta.ui.util.Util.getColorIntervals
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Composable
 fun RitualsDailyScreen(
     navController: NavController,
-    viewModel: RitualsDailyViewModel = hiltViewModel()
+    viewModel: RitualsDailyViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     val sentimentCounts = viewModel.sentimentCounts.collectAsState(
@@ -76,6 +82,11 @@ fun RitualsDailyScreen(
                         widthFraction = spacing.float0_5,
                     ) {
                         navController.navigate(Screen.RecapScreen.route)
+                    }
+                    Button(onClick = {
+                        viewModel.service.showNotification(viewModel.notificationCount)
+                    }) {
+                        Text(text = "Show notification")
                     }
                 }
             }
