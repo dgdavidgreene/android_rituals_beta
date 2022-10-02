@@ -47,7 +47,3 @@ class CounterNotificationService(
         const val COUNTER_CHANNEL_ID = "counter_channel"
     }
 }
-
-interface ICounterNotificationService {
-    fun showNotification(counter: Int)
-}

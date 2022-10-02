@@ -5,7 +5,6 @@ import android.content.Context
 import com.dgdavidgreene.androidritualsbeta.AppDatabase
 import com.dgdavidgreene.androidritualsbeta.data.Repository
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.CounterNotificationService
-import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.ICounterNotificationService
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import dagger.Module
