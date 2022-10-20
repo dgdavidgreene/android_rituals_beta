@@ -28,5 +28,10 @@ class RitualsDailyViewModel @Inject constructor(private val repository: Reposito
             sentimentCounts = repository.getRitualSentimentCountsByCategory(today)
         }
     }
+
+    internal fun showNotification(counter: Int) {
+        service.showNotification(counter)
+        notificationCount++
+    }
  }
 

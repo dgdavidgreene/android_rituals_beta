@@ -13,10 +13,10 @@ class RitualApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        createNotificationChannel()
+        createCounterNotificationChannel()
     }
 
-    private fun createNotificationChannel() {
+    private fun createCounterNotificationChannel() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CounterNotificationService.COUNTER_CHANNEL_ID,
