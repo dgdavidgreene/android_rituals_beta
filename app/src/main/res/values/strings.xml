@@ -45,4 +45,7 @@
     <string name="wins_prompt">However small, what went well, how did you outdo the usual.</string>
 
     <string name="process">Visualize your answer, explore your feelings, and your bodily sensations.</string>
+
+    <string name="daily_channel_name">Daily</string>
+    <string name="daily_channel_description">Daily Ritual notifications</string>
 </resources>

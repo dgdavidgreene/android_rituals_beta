@@ -6,6 +6,7 @@ import com.dgdavidgreene.androidritualsbeta.AppDatabase
 import com.dgdavidgreene.androidritualsbeta.data.Repository
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.CounterNotificationService
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.NotificationService
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.daily.DailyNotificationService
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.android.AndroidSqliteDriver
 import dagger.Module
@@ -48,5 +49,11 @@ object AppModule {
     @Singleton
     fun provideCounterNotificationService(application: Application): CounterNotificationService {
         return CounterNotificationService(application.applicationContext)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDailyNotificationService(application: Application): DailyNotificationService {
+        return DailyNotificationService(application.applicationContext)
     }
 }
