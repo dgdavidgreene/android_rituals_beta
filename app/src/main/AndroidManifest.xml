@@ -28,5 +28,6 @@
             </intent-filter>
         </activity>
         <receiver android:name=".ui.notifications.counter.CounterNotificationReceiver" />
+        <receiver android:name=".ui.notifications.daily.DailyNotificationReceiver" />
     </application>
 </manifest>
