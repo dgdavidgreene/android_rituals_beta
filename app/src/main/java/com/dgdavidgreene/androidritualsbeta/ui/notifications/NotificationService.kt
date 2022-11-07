@@ -8,6 +8,5 @@ class NotificationService(private val applicationContext: Context) {
     fun launchNotificationChannels() {
         DailyNotificationService(applicationContext)
         CounterNotificationService(applicationContext)
-
     }
 }

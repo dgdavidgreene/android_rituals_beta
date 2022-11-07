@@ -48,4 +48,8 @@
 
     <string name="daily_channel_name">Daily</string>
     <string name="daily_channel_description">Daily Ritual notifications</string>
+
+    <string name="notifications_general_channel_id">100</string>
+    <string name="notifications_general_channel">General</string>
+    <string name="notifications_general_channel_description">General Notification Channel</string>
 </resources>

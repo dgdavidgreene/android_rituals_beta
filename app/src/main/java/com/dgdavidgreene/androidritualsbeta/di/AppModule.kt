@@ -2,8 +2,12 @@ package com.dgdavidgreene.androidritualsbeta.di
 
 import android.app.Application
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.dgdavidgreene.androidritualsbeta.AppDatabase
 import com.dgdavidgreene.androidritualsbeta.data.Repository
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.NotificationChannelFactory
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.NotificationFactory
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.CounterNotificationService
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.NotificationService
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.daily.DailyNotificationService
@@ -56,4 +60,19 @@ object AppModule {
     fun provideDailyNotificationService(application: Application): DailyNotificationService {
         return DailyNotificationService(application.applicationContext)
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    @Provides
+    @Singleton
+    fun provideNotificationChannelFactory(application: Application): NotificationChannelFactory {
+        return NotificationChannelFactory(application.applicationContext)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    @Provides
+    @Singleton
+    fun provideNotificationFactory(application: Application): NotificationFactory {
+        return NotificationFactory(application.applicationContext)
+    }
+
 }
