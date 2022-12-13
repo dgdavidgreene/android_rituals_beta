@@ -48,9 +48,4 @@ class RitualApp: Application() {
             notificationManager.createNotificationChannel(mChannel)
         }
     }
-    companion object {
-        const val DAILY_CHANNEL_ID = "daily_channel"
-        const val DAILY_CHANNEL_NAME = "Daily Channel"
-        const val DAILY_CHANNEL_DESCRIPTION = "Daily Channel"
-    }
 }
