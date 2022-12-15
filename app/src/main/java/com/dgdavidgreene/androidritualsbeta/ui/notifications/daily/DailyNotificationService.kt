@@ -28,7 +28,9 @@ class DailyNotificationService(
         val incrementIntent = PendingIntent.getBroadcast(
             context,
             4,
-            Intent(context, DailyNotificationReceiver::class.java),
+            Intent(context, DailyNotificationReceiver::class.java).apply {
+                putExtra("my_extra", 3)
+            },
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
         )
         val notification = NotificationCompat.Builder(context, dailyChannelID)

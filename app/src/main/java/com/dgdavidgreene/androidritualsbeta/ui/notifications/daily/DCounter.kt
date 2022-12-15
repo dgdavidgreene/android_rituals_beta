@@ -1,5 +1,5 @@
 package com.dgdavidgreene.androidritualsbeta.ui.notifications.daily
 
-object Counter {
+object DCounter {
     var value = 0
 }

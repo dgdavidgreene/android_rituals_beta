@@ -8,6 +8,7 @@ import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.CounterNoti
 import com.dgdavidgreene.androidritualsbeta.ui.util.DateTimeUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.counter.Counter
+import com.dgdavidgreene.androidritualsbeta.ui.notifications.daily.DCounter
 import com.dgdavidgreene.androidritualsbeta.ui.notifications.daily.DailyNotificationService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -20,6 +21,7 @@ class RitualsDailyViewModel @Inject constructor(private val repository: Reposito
     var service = notificationService
     var dailyService = dailyNotificationService
     var notificationCount = Counter.value
+    var dNotificationCount = DCounter.value
     init {
         getSentimentCategoryCounts()
     }
@@ -31,10 +33,11 @@ class RitualsDailyViewModel @Inject constructor(private val repository: Reposito
         }
     }
 
-    internal fun showNotification(counter: Int) {
-        service.showNotification(counter)
-        dailyService.showNotification(counter)
+    internal fun showNotification() {
+        service.showNotification(notificationCount)
+        dailyService.showNotification(dNotificationCount)
         notificationCount++
+        dNotificationCount++
     }
  }
 

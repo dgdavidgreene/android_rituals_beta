@@ -84,7 +84,7 @@ fun RitualsDailyScreen(
                         navController.navigate(Screen.RecapScreen.route)
                     }
                     Button(onClick = {
-                        viewModel.showNotification(viewModel.notificationCount)
+                        viewModel.showNotification()
                     }) {
                         Text(text = "Show notification")
                     }
